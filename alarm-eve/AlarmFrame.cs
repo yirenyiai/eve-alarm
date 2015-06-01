@@ -18,11 +18,9 @@ namespace alarm_eve
         private const int GCL_STYLE = (-26);
         public delegate void BeginInvokeDelegate();
         private AlarmListDialog m_AlarmListDialog;
-        private IniFile m_Ini = new IniFile(".\\eve-account.ini");
+        private IniFile m_Ini = new IniFile(Application.StartupPath + "\\eve-account.ini");
         System.Timers.Timer m_TimerFreshSkillsStatus = new System.Timers.Timer(1000);
         DateTime m_SkillsDT;
-        ContextMenu m_TrayIconMenu = new ContextMenu();
-
 
         public AlarmFrame()
         {
@@ -157,17 +155,27 @@ namespace alarm_eve
             SkillsStatue.BeginInvoke(new BeginInvokeDelegate(OnTimerControl));
         }
 
+        private void InitShowControl()
+        {
+            string bShowTimer = m_Ini.IniReadValue("eve-configure", "ShowTimer");
+            string bShowMaturityDate = m_Ini.IniReadValue("eve-configure", "ShowMaturityDate");
+            string bShowAccount = m_Ini.IniReadValue("eve-configure", "ShowAccount");
+
+            if (!string.IsNullOrWhiteSpace(bShowAccount)) this.RoleName.Visible = Convert.ToBoolean(bShowAccount);
+            if (!string.IsNullOrWhiteSpace(bShowMaturityDate)) this.Msg.Visible = Convert.ToBoolean(bShowMaturityDate);
+            if (!string.IsNullOrWhiteSpace(bShowTimer)) this.SkillsStatue.Visible = Convert.ToBoolean(bShowTimer);
+        }
+
         private void AlarmFrame_Load(object sender, EventArgs e)
         {
             SetFormRoundRectRgn(5);
             Win32.SetClassLong(this.Handle, GCL_STYLE, Win32.GetClassLong(this.Handle, GCL_STYLE) | CS_DropSHADOW);
             this.TrayIcon.Visible = true;
-            m_TrayIconMenu.MenuItems.Add(new MenuItem("退出"));//添加托盘菜单项  
-            m_TrayIconMenu.MenuItems[0].Click += new EventHandler(CloseDlg);
-            this.TrayIcon.ContextMenu = m_TrayIconMenu;
-
+            this.TrayIcon.ContextMenuStrip = this.TrayIconContentMenu;
             this.ShowInTaskbar = false;
             ShowEveAccount();
+
+            InitShowControl();
         }
 
         private void AddBtn_Click(object sender, EventArgs e)
@@ -175,14 +183,20 @@ namespace alarm_eve
             m_AlarmListDialog = new AlarmListDialog();
             m_AlarmListDialog.ShowDialog();
             ShowEveAccount();
+            InitShowControl();
         }
 
-        private void CloseDlg(object sender, EventArgs e)
+        private void CloseBtn_Click(object sender, EventArgs e)
         {
             Close();
         }
 
-        private void CloseBtn_Click(object sender, EventArgs e)
+        private void ExitMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
+
+        private void MinBtn_Click(object sender, EventArgs e)
         {
             Hide();
         }
@@ -206,15 +220,6 @@ namespace alarm_eve
         {
             this.Show();
             this.Activate();
-        }
-
-        private void TrayIcon_MouseUp(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Right)
-            {
-
-
-            }
         }
     }
 }

@@ -39,6 +39,9 @@
             this.MaturityDate = new System.Windows.Forms.DateTimePicker();
             this.Delete = new System.Windows.Forms.Button();
             this.AutoStartBtn = new System.Windows.Forms.Button();
+            this.ShowAccount = new System.Windows.Forms.CheckBox();
+            this.ShowMaturityDate = new System.Windows.Forms.CheckBox();
+            this.ShowTimer = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // AlramList
@@ -142,11 +145,53 @@
             this.AutoStartBtn.UseVisualStyleBackColor = true;
             this.AutoStartBtn.Click += new System.EventHandler(this.AutoStartBtn_Click);
             // 
+            // ShowAccount
+            // 
+            this.ShowAccount.AutoSize = true;
+            this.ShowAccount.Checked = true;
+            this.ShowAccount.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ShowAccount.Location = new System.Drawing.Point(19, 305);
+            this.ShowAccount.Name = "ShowAccount";
+            this.ShowAccount.Size = new System.Drawing.Size(72, 16);
+            this.ShowAccount.TabIndex = 5;
+            this.ShowAccount.Text = "显示帐号";
+            this.ShowAccount.UseVisualStyleBackColor = true;
+            this.ShowAccount.CheckedChanged += new System.EventHandler(this.ShowAccount_CheckedChanged);
+            // 
+            // ShowMaturityDate
+            // 
+            this.ShowMaturityDate.AutoSize = true;
+            this.ShowMaturityDate.Checked = true;
+            this.ShowMaturityDate.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ShowMaturityDate.Location = new System.Drawing.Point(97, 305);
+            this.ShowMaturityDate.Name = "ShowMaturityDate";
+            this.ShowMaturityDate.Size = new System.Drawing.Size(120, 16);
+            this.ShowMaturityDate.TabIndex = 5;
+            this.ShowMaturityDate.Text = "显示计划到期时间";
+            this.ShowMaturityDate.UseVisualStyleBackColor = true;
+            this.ShowMaturityDate.CheckedChanged += new System.EventHandler(this.ShowMaturityDate_CheckedChanged);
+            // 
+            // ShowTimer
+            // 
+            this.ShowTimer.AutoSize = true;
+            this.ShowTimer.Checked = true;
+            this.ShowTimer.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ShowTimer.Location = new System.Drawing.Point(223, 305);
+            this.ShowTimer.Name = "ShowTimer";
+            this.ShowTimer.Size = new System.Drawing.Size(84, 16);
+            this.ShowTimer.TabIndex = 5;
+            this.ShowTimer.Text = "显示倒计时";
+            this.ShowTimer.UseVisualStyleBackColor = true;
+            this.ShowTimer.CheckedChanged += new System.EventHandler(this.ShowTimer_CheckedChanged);
+            // 
             // AlarmListDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(492, 333);
+            this.Controls.Add(this.ShowTimer);
+            this.Controls.Add(this.ShowMaturityDate);
+            this.Controls.Add(this.ShowAccount);
             this.Controls.Add(this.MaturityDate);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.EveAccountEdit);
@@ -179,5 +224,8 @@
         private System.Windows.Forms.DateTimePicker MaturityDate;
         private System.Windows.Forms.Button Delete;
         private System.Windows.Forms.Button AutoStartBtn;
+        private System.Windows.Forms.CheckBox ShowAccount;
+        private System.Windows.Forms.CheckBox ShowMaturityDate;
+        private System.Windows.Forms.CheckBox ShowTimer;
     }
 }
