@@ -266,7 +266,7 @@ namespace alarm_eve
             {
                 foreach (ControlSet Controls in m_ControlSetArray)
                 {
-                    Controls.m_RoleName.Visible = Convert.ToBoolean(bShowTimer); 
+                    Controls.m_RoleName.Visible = Convert.ToBoolean(bShowAccount); 
                 }
             }
 
@@ -277,7 +277,8 @@ namespace alarm_eve
                     Controls.m_MaturityDate.Visible = Convert.ToBoolean(bShowMaturityDate); 
                 }
             }
-            if (!string.IsNullOrWhiteSpace(bShowTimer)) this.SkillsStatue_1.Visible = Convert.ToBoolean(bShowTimer);
+
+            if (!string.IsNullOrWhiteSpace(bShowTimer)) 
             {
                 {
                     foreach (ControlSet Controls in m_ControlSetArray)
