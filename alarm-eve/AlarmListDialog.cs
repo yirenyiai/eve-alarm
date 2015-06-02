@@ -110,6 +110,25 @@ namespace alarm_eve
             }
         }
 
+        private void InitShowItemCount()
+        {
+            string ShowItemCount = m_Ini.IniReadValue("eve-configure", "ShowItemCount");
+            if (!string.IsNullOrWhiteSpace(ShowItemCount))
+                this.ShowItemCount.Text = ShowItemCount;
+        }
+
+        private void InitAutoStart()
+        {
+            if (IsAutoStart())
+            {
+                AutoStartBtn.Text = "取消开机启动";
+            }
+            else
+            {
+                AutoStartBtn.Text = "开机启动";
+            }
+        }
+
         private void AlarmListDialog_Load(object sender, EventArgs e)
         {
             this.MaturityDate.Format = DateTimePickerFormat.Custom;
@@ -118,18 +137,7 @@ namespace alarm_eve
 
             InitCheckBoxStatus();
             InitListViewData();
-
-            if (IsAutoStart())
-            {
-                AutoStartBtn.Text = "取消开机启动";
-            }
-            else 
-            {
-                AutoStartBtn.Text = "开机启动";
-            }
-
-          
-
+            InitShowItemCount();
         }
 
         private void CloseBtn_Click(object sender, EventArgs e)
@@ -219,6 +227,12 @@ namespace alarm_eve
         {
             string Status = this.ShowAccount.Checked.ToString();
             m_Ini.IniWriteValue("eve-configure", "ShowAccount", Status);
+        }
+
+        private void ShowItemCount_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string ItemCount = this.ShowItemCount.Text;
+            m_Ini.IniWriteValue("eve-configure", "ShowItemCount", ItemCount);
         }
 
     }

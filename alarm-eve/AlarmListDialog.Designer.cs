@@ -42,6 +42,9 @@
             this.ShowAccount = new System.Windows.Forms.CheckBox();
             this.ShowMaturityDate = new System.Windows.Forms.CheckBox();
             this.ShowTimer = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ShowItemCount = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // AlramList
@@ -53,14 +56,14 @@
             this.AlramList.FullRowSelect = true;
             this.AlramList.Location = new System.Drawing.Point(0, 0);
             this.AlramList.Name = "AlramList";
-            this.AlramList.Size = new System.Drawing.Size(492, 183);
+            this.AlramList.Size = new System.Drawing.Size(492, 186);
             this.AlramList.TabIndex = 0;
             this.AlramList.UseCompatibleStateImageBehavior = false;
             this.AlramList.View = System.Windows.Forms.View.Details;
             // 
             // EveAccount
             // 
-            this.EveAccount.Text = "帐号名字";
+            this.EveAccount.Text = "备注信息";
             this.EveAccount.Width = 99;
             // 
             // Remain
@@ -72,7 +75,7 @@
             // RoleEdit
             // 
             this.RoleEdit.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.RoleEdit.Location = new System.Drawing.Point(108, 201);
+            this.RoleEdit.Location = new System.Drawing.Point(114, 194);
             this.RoleEdit.Name = "RoleEdit";
             this.RoleEdit.Size = new System.Drawing.Size(228, 33);
             this.RoleEdit.TabIndex = 1;
@@ -101,17 +104,17 @@
             // 
             this.EveAccountEdit.AutoSize = true;
             this.EveAccountEdit.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.EveAccountEdit.Location = new System.Drawing.Point(13, 204);
+            this.EveAccountEdit.Location = new System.Drawing.Point(19, 197);
             this.EveAccountEdit.Name = "EveAccountEdit";
             this.EveAccountEdit.Size = new System.Drawing.Size(50, 25);
             this.EveAccountEdit.TabIndex = 3;
-            this.EveAccountEdit.Text = "帐号";
+            this.EveAccountEdit.Text = "备注";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(13, 257);
+            this.label1.Location = new System.Drawing.Point(19, 234);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 25);
             this.label1.TabIndex = 3;
@@ -120,7 +123,7 @@
             // MaturityDate
             // 
             this.MaturityDate.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.MaturityDate.Location = new System.Drawing.Point(107, 257);
+            this.MaturityDate.Location = new System.Drawing.Point(113, 234);
             this.MaturityDate.Name = "MaturityDate";
             this.MaturityDate.Size = new System.Drawing.Size(229, 33);
             this.MaturityDate.TabIndex = 4;
@@ -150,11 +153,11 @@
             this.ShowAccount.AutoSize = true;
             this.ShowAccount.Checked = true;
             this.ShowAccount.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ShowAccount.Location = new System.Drawing.Point(19, 305);
+            this.ShowAccount.Location = new System.Drawing.Point(41, 305);
             this.ShowAccount.Name = "ShowAccount";
             this.ShowAccount.Size = new System.Drawing.Size(72, 16);
             this.ShowAccount.TabIndex = 5;
-            this.ShowAccount.Text = "显示帐号";
+            this.ShowAccount.Text = "显示备注";
             this.ShowAccount.UseVisualStyleBackColor = true;
             this.ShowAccount.CheckedChanged += new System.EventHandler(this.ShowAccount_CheckedChanged);
             // 
@@ -163,7 +166,7 @@
             this.ShowMaturityDate.AutoSize = true;
             this.ShowMaturityDate.Checked = true;
             this.ShowMaturityDate.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ShowMaturityDate.Location = new System.Drawing.Point(97, 305);
+            this.ShowMaturityDate.Location = new System.Drawing.Point(119, 305);
             this.ShowMaturityDate.Name = "ShowMaturityDate";
             this.ShowMaturityDate.Size = new System.Drawing.Size(120, 16);
             this.ShowMaturityDate.TabIndex = 5;
@@ -176,7 +179,7 @@
             this.ShowTimer.AutoSize = true;
             this.ShowTimer.Checked = true;
             this.ShowTimer.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ShowTimer.Location = new System.Drawing.Point(223, 305);
+            this.ShowTimer.Location = new System.Drawing.Point(245, 305);
             this.ShowTimer.Name = "ShowTimer";
             this.ShowTimer.Size = new System.Drawing.Size(84, 16);
             this.ShowTimer.TabIndex = 5;
@@ -184,11 +187,49 @@
             this.ShowTimer.UseVisualStyleBackColor = true;
             this.ShowTimer.CheckedChanged += new System.EventHandler(this.ShowTimer_CheckedChanged);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(44, 282);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "一次性显示\r\n";
+            // 
+            // ShowItemCount
+            // 
+            this.ShowItemCount.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.ShowItemCount.FormattingEnabled = true;
+            this.ShowItemCount.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
+            this.ShowItemCount.Location = new System.Drawing.Point(118, 278);
+            this.ShowItemCount.Name = "ShowItemCount";
+            this.ShowItemCount.Size = new System.Drawing.Size(59, 20);
+            this.ShowItemCount.TabIndex = 7;
+            this.ShowItemCount.Text = "1";
+            this.ShowItemCount.SelectedIndexChanged += new System.EventHandler(this.ShowItemCount_SelectedIndexChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(196, 282);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "条信息";
+            // 
             // AlarmListDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(492, 333);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.ShowItemCount);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.ShowTimer);
             this.Controls.Add(this.ShowMaturityDate);
             this.Controls.Add(this.ShowAccount);
@@ -201,6 +242,9 @@
             this.Controls.Add(this.AddAlramBtn);
             this.Controls.Add(this.RoleEdit);
             this.Controls.Add(this.AlramList);
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(508, 372);
+            this.MinimumSize = new System.Drawing.Size(508, 372);
             this.Name = "AlarmListDialog";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -227,5 +271,8 @@
         private System.Windows.Forms.CheckBox ShowAccount;
         private System.Windows.Forms.CheckBox ShowMaturityDate;
         private System.Windows.Forms.CheckBox ShowTimer;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox ShowItemCount;
+        private System.Windows.Forms.Label label3;
     }
 }
