@@ -14,7 +14,7 @@ namespace alarm_eve
 {
     public partial class AlarmListDialog : Form
     {
-        private IniFile ini = new IniFile(".\\eve-account.ini");
+        private IniFile m_Ini = new IniFile(Application.StartupPath + "\\eve-account.ini");
 
         public AlarmListDialog()
         {
@@ -26,7 +26,7 @@ namespace alarm_eve
             try
             {
                 bool bAutoStart = false;
-                string starupPath = Application.ExecutablePath;
+                string starupPath = Application.LocalUserAppDataPath;
                 RegistryKey loca = Registry.LocalMachine;
                 RegistryKey run = loca.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
                 string RegValue = run.GetValue("alarm-eve").ToString();
@@ -46,7 +46,7 @@ namespace alarm_eve
         {
             try
             {
-                string starupPath = Application.ExecutablePath;
+                string starupPath = Application.LocalUserAppDataPath;
                 RegistryKey loca = Registry.LocalMachine;
                 RegistryKey run = loca.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
                 run.SetValue("alarm-eve", starupPath);
@@ -75,11 +75,49 @@ namespace alarm_eve
             }
         }
 
+        private void InitCheckBoxStatus()
+        {
+            string bShowTimer = m_Ini.IniReadValue("eve-configure", "ShowTimer");
+            string bShowMaturityDate = m_Ini.IniReadValue("eve-configure", "ShowMaturityDate");
+            string bShowAccount = m_Ini.IniReadValue("eve-configure", "ShowAccount");
+
+            if (!string.IsNullOrWhiteSpace(bShowAccount)) this.ShowAccount.Checked = Convert.ToBoolean(bShowAccount);
+            if (!string.IsNullOrWhiteSpace(bShowMaturityDate)) this.ShowMaturityDate.Checked = Convert.ToBoolean(bShowMaturityDate);
+            if (!string.IsNullOrWhiteSpace(bShowTimer)) this.ShowTimer.Checked = Convert.ToBoolean(bShowTimer);
+        }
+
+        private void InitListViewData()
+        {
+            // 读取INI数据
+            string AccountSet = m_Ini.IniReadValue("eve-account", "AccountSet");
+            string Account = "";
+            foreach (char C in AccountSet)
+            {
+                if (C == '|')
+                {
+                    string Time = m_Ini.IniReadValue("eve-account", Account);
+                    ListViewItem lv = new ListViewItem();
+                    lv.SubItems[0].Text = Account;
+                    lv.SubItems.Add(Time);
+                    AlramList.Items.Add(lv);
+                    // 清空
+                    Account = "";
+                }
+                else
+                {
+                    Account += C;
+                }
+            }
+        }
+
         private void AlarmListDialog_Load(object sender, EventArgs e)
         {
             this.MaturityDate.Format = DateTimePickerFormat.Custom;
             this.MaturityDate.CustomFormat = "yyyy-MM-dd HH:mm:ss";
             this.MaturityDate.ShowUpDown = true;
+
+            InitCheckBoxStatus();
+            InitListViewData();
 
             if (IsAutoStart())
             {
@@ -90,26 +128,7 @@ namespace alarm_eve
                 AutoStartBtn.Text = "开机启动";
             }
 
-            // 读取INI数据
-            string AccountSet = ini.IniReadValue("eve-account", "AccountSet");
-            string Account = "";
-            foreach (char C in AccountSet)
-            {
-                if (C == '|')
-                {
-                    string Time = ini.IniReadValue("eve-account", Account);
-                    ListViewItem lv = new ListViewItem();
-                    lv.SubItems[0].Text = Account;
-                    lv.SubItems.Add(Time);
-                    AlramList.Items.Add(lv);
-                    // 清空
-                    Account = "";
-                }
-                else 
-                {
-                    Account += C;
-                }
-            }
+          
 
         }
 
@@ -128,10 +147,10 @@ namespace alarm_eve
                 return ;
             }
 
-            string AccountSet = ini.IniReadValue("eve-account", "AccountSet");
+            string AccountSet = m_Ini.IniReadValue("eve-account", "AccountSet");
             AccountSet += Account + "|";
-            ini.IniWriteValue("eve-account", "AccountSet", AccountSet);
-            ini.IniWriteValue("eve-account", Account, Time);
+            m_Ini.IniWriteValue("eve-account", "AccountSet", AccountSet);
+            m_Ini.IniWriteValue("eve-account", Account, Time);
 
             ListViewItem lv = new ListViewItem();
             lv.SubItems[0].Text = Account;
@@ -144,7 +163,7 @@ namespace alarm_eve
             if (AlramList.SelectedItems.Count <= 0) return;
 
             string DelAccount = AlramList.SelectedItems[0].Text;
-            string oldAccountSet = ini.IniReadValue("eve-account", "AccountSet");
+            string oldAccountSet = m_Ini.IniReadValue("eve-account", "AccountSet");
             string tmpAccount = "";
             string newAccountSet = "";
             foreach (char C in oldAccountSet)
@@ -163,15 +182,43 @@ namespace alarm_eve
                 }
             }
 
-            ini.IniWriteValue("eve-account", "AccountSet", newAccountSet);
-            ini.IniWriteValue("eve-account", DelAccount, "");
+            m_Ini.IniWriteValue("eve-account", "AccountSet", newAccountSet);
+            m_Ini.IniWriteValue("eve-account", DelAccount, "");
 
             AlramList.Items.RemoveAt(AlramList.SelectedItems[0].Index);
         }
 
         private void AutoStartBtn_Click(object sender, EventArgs e)
         {
-            AutoStart();
+            if (IsAutoStart())
+            {
+                DelAutoStart();
+                AutoStartBtn.Text = "开机启动";
+            }
+            else 
+            {
+                AutoStart();
+                AutoStartBtn.Text = "取消开机启动";
+            }
+
+        }
+
+        private void ShowTimer_CheckedChanged(object sender, EventArgs e)
+        {
+            string Status = this.ShowTimer.Checked.ToString();
+            m_Ini.IniWriteValue("eve-configure", "ShowTimer", Status);
+        }
+
+        private void ShowMaturityDate_CheckedChanged(object sender, EventArgs e)
+        {
+            string Status = this.ShowMaturityDate.Checked.ToString();
+            m_Ini.IniWriteValue("eve-configure", "ShowMaturityDate", Status);
+        }
+
+        private void ShowAccount_CheckedChanged(object sender, EventArgs e)
+        {
+            string Status = this.ShowAccount.Checked.ToString();
+            m_Ini.IniWriteValue("eve-configure", "ShowAccount", Status);
         }
 
     }
