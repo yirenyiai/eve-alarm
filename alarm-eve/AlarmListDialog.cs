@@ -9,6 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Ini;
 using Microsoft.Win32;
+using Qiniu.IO;
+using Qiniu.RS;
+using Qiniu.RPC;
+using System.Net;
+using System.IO;
 
 namespace alarm_eve
 {
@@ -164,6 +169,8 @@ namespace alarm_eve
             lv.SubItems[0].Text = Account;
             lv.SubItems.Add(Time);
             AlramList.Items.Add(lv);
+
+            CommitFile();
         }
 
         private void Delete_Click(object sender, EventArgs e)
@@ -194,6 +201,7 @@ namespace alarm_eve
             m_Ini.IniWriteValue("eve-account", DelAccount, "");
 
             AlramList.Items.RemoveAt(AlramList.SelectedItems[0].Index);
+            CommitFile();
         }
 
         private void AutoStartBtn_Click(object sender, EventArgs e)
@@ -234,6 +242,65 @@ namespace alarm_eve
             string ItemCount = this.ShowItemCount.Text;
             m_Ini.IniWriteValue("eve-configure", "ShowItemCount", ItemCount);
         }
+
+        private void SyncBtn_Click(object sender, EventArgs e)
+        {
+            try 
+            {
+                string url = "http://7xjgjz.com1.z0.glb.clouddn.com/eve-account.ini";
+                string LocalPath = Application.StartupPath + @"\eve-account.ini";
+                WebClient myWebClient = new WebClient();
+                myWebClient.DownloadFile(url, LocalPath);
+                AlramList.Items.Clear();
+                InitListViewData();
+            }
+            catch (Exception E)
+            {
+                MessageBox.Show(E.Message);
+            }
+        }
+
+        private void CommitFile()
+        {
+            string LocalPath = Application.StartupPath + @"\eve-account.ini";
+
+            if (!DeleteFile("eve-account", "eve-account.ini"))
+            {
+                return;
+            }
+
+            // 这里很严重。所以要重复提交
+            DialogResult ret = DialogResult.Cancel;
+            do
+            {
+                if (!PutFile("eve-account", "eve-account.ini", LocalPath))
+                {
+                    MessageBox.Show("发生严重错误，服务器数据被单向删除。是否要重新提交");
+                    return;
+                }
+            } while (ret == DialogResult.OK);
+        }
+
+        private bool PutFile(string bucket, string key, string fname)
+        {
+            var policy = new PutPolicy(bucket, 3600);
+            string upToken = policy.Token();
+            PutExtra extra = new PutExtra();
+            IOClient client = new IOClient();
+            PutRet ret = client.PutFile(upToken, key, fname, extra);
+            if (!ret.OK) MessageBox.Show(ret.Response);
+            return ret.OK;
+        }
+
+        private bool DeleteFile(string bucket, string key)
+        {
+            Console.WriteLine("\n===> Delete {0}:{1}", bucket, key);
+            RSClient client = new RSClient();
+            CallRet ret = client.Delete(new EntryPath(bucket, key));
+            if (!ret.OK) MessageBox.Show(ret.Response);
+            return ret.OK;
+        }
+
 
     }
 }

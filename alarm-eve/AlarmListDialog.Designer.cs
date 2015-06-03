@@ -44,6 +44,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.ShowItemCount = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.SyncBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AlramList
@@ -81,7 +82,7 @@
             // 
             // AddAlramBtn
             // 
-            this.AddAlramBtn.Location = new System.Drawing.Point(372, 250);
+            this.AddAlramBtn.Location = new System.Drawing.Point(372, 263);
             this.AddAlramBtn.Name = "AddAlramBtn";
             this.AddAlramBtn.Size = new System.Drawing.Size(108, 26);
             this.AddAlramBtn.TabIndex = 2;
@@ -119,7 +120,7 @@
             // 
             // Delete
             // 
-            this.Delete.Location = new System.Drawing.Point(372, 282);
+            this.Delete.Location = new System.Drawing.Point(372, 295);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(108, 26);
             this.Delete.TabIndex = 2;
@@ -129,7 +130,7 @@
             // 
             // AutoStartBtn
             // 
-            this.AutoStartBtn.Location = new System.Drawing.Point(372, 218);
+            this.AutoStartBtn.Location = new System.Drawing.Point(372, 231);
             this.AutoStartBtn.Name = "AutoStartBtn";
             this.AutoStartBtn.Size = new System.Drawing.Size(108, 26);
             this.AutoStartBtn.TabIndex = 2;
@@ -211,6 +212,16 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "条信息";
             // 
+            // SyncBtn
+            // 
+            this.SyncBtn.Location = new System.Drawing.Point(372, 199);
+            this.SyncBtn.Name = "SyncBtn";
+            this.SyncBtn.Size = new System.Drawing.Size(108, 26);
+            this.SyncBtn.TabIndex = 2;
+            this.SyncBtn.Text = "同步数据";
+            this.SyncBtn.UseVisualStyleBackColor = true;
+            this.SyncBtn.Click += new System.EventHandler(this.SyncBtn_Click);
+            // 
             // AlarmListDialog
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -226,6 +237,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.EveAccountEdit);
             this.Controls.Add(this.Delete);
+            this.Controls.Add(this.SyncBtn);
             this.Controls.Add(this.AutoStartBtn);
             this.Controls.Add(this.AddAlramBtn);
             this.Controls.Add(this.RoleEdit);
@@ -261,5 +273,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox ShowItemCount;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button SyncBtn;
     }
 }
