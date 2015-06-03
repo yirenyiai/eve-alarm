@@ -33,7 +33,6 @@
             this.Remain = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.RoleEdit = new System.Windows.Forms.TextBox();
             this.AddAlramBtn = new System.Windows.Forms.Button();
-            this.CloseBtn = new System.Windows.Forms.Button();
             this.EveAccountEdit = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.MaturityDate = new System.Windows.Forms.DateTimePicker();
@@ -82,23 +81,13 @@
             // 
             // AddAlramBtn
             // 
-            this.AddAlramBtn.Location = new System.Drawing.Point(372, 224);
+            this.AddAlramBtn.Location = new System.Drawing.Point(372, 250);
             this.AddAlramBtn.Name = "AddAlramBtn";
             this.AddAlramBtn.Size = new System.Drawing.Size(108, 26);
             this.AddAlramBtn.TabIndex = 2;
             this.AddAlramBtn.Text = "添加任务";
             this.AddAlramBtn.UseVisualStyleBackColor = true;
             this.AddAlramBtn.Click += new System.EventHandler(this.AddAlramBtn_Click);
-            // 
-            // CloseBtn
-            // 
-            this.CloseBtn.Location = new System.Drawing.Point(372, 288);
-            this.CloseBtn.Name = "CloseBtn";
-            this.CloseBtn.Size = new System.Drawing.Size(108, 26);
-            this.CloseBtn.TabIndex = 2;
-            this.CloseBtn.Text = "关闭";
-            this.CloseBtn.UseVisualStyleBackColor = true;
-            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
             // 
             // EveAccountEdit
             // 
@@ -130,7 +119,7 @@
             // 
             // Delete
             // 
-            this.Delete.Location = new System.Drawing.Point(372, 256);
+            this.Delete.Location = new System.Drawing.Point(372, 282);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(108, 26);
             this.Delete.TabIndex = 2;
@@ -140,7 +129,7 @@
             // 
             // AutoStartBtn
             // 
-            this.AutoStartBtn.Location = new System.Drawing.Point(372, 192);
+            this.AutoStartBtn.Location = new System.Drawing.Point(372, 218);
             this.AutoStartBtn.Name = "AutoStartBtn";
             this.AutoStartBtn.Size = new System.Drawing.Size(108, 26);
             this.AutoStartBtn.TabIndex = 2;
@@ -226,7 +215,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 333);
+            this.ClientSize = new System.Drawing.Size(492, 334);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ShowItemCount);
             this.Controls.Add(this.label2);
@@ -237,7 +226,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.EveAccountEdit);
             this.Controls.Add(this.Delete);
-            this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.AutoStartBtn);
             this.Controls.Add(this.AddAlramBtn);
             this.Controls.Add(this.RoleEdit);
@@ -262,7 +250,6 @@
         private System.Windows.Forms.ColumnHeader Remain;
         private System.Windows.Forms.TextBox RoleEdit;
         private System.Windows.Forms.Button AddAlramBtn;
-        private System.Windows.Forms.Button CloseBtn;
         private System.Windows.Forms.Label EveAccountEdit;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker MaturityDate;
