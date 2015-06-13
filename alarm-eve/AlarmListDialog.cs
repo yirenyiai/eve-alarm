@@ -264,10 +264,7 @@ namespace alarm_eve
         {
             string LocalPath = Application.StartupPath + @"\eve-account.ini";
 
-            if (!DeleteFile("eve-account", "eve-account.ini"))
-            {
-                return;
-            }
+            DeleteFile("eve-account", "eve-account.ini");
 
             // 这里很严重。所以要重复提交
             DialogResult ret = DialogResult.Cancel;
