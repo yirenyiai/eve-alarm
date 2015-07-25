@@ -52,7 +52,7 @@ namespace alarm_eve
             try
             {
                 string starupPath = Application.LocalUserAppDataPath;
-                RegistryKey loca = Registry.LocalMachine;
+                RegistryKey loca = Registry.CurrentUser;
                 RegistryKey run = loca.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
                 run.SetValue("alarm-eve", starupPath);
                 loca.Close();
@@ -69,7 +69,7 @@ namespace alarm_eve
             {
                 string starupPath = Application.ExecutablePath;
                 //  class Micosoft.Win32.RegistryKey. 表示Window注册表中项级节点,此类是注册表装.
-                RegistryKey loca = Registry.LocalMachine;
+                RegistryKey loca = Registry.CurrentUser;
                 RegistryKey run = loca.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
                 run.DeleteValue("alarm-eve");
                 loca.Close();
