@@ -50,7 +50,7 @@ namespace alarm_eve
         {
             try
             {
-                string starupPath = Application.LocalUserAppDataPath;
+                string starupPath = Application.ExecutablePath;
                 RegistryKey loca = Registry.CurrentUser;
                 RegistryKey run = loca.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
                 run.SetValue("alarm-eve", starupPath);
