@@ -302,7 +302,7 @@
             // MinBtn
             // 
             this.MinBtn.Image = global::alarm_eve.Properties.Resources.Min;
-            this.MinBtn.Location = new System.Drawing.Point(222, 4);
+            this.MinBtn.Location = new System.Drawing.Point(295, 4);
             this.MinBtn.Name = "MinBtn";
             this.MinBtn.Size = new System.Drawing.Size(22, 13);
             this.MinBtn.TabIndex = 3;
@@ -315,7 +315,7 @@
             // 
             this.CloseBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(44)))));
             this.CloseBtn.Image = global::alarm_eve.Properties.Resources.Close;
-            this.CloseBtn.Location = new System.Drawing.Point(267, 1);
+            this.CloseBtn.Location = new System.Drawing.Point(340, 1);
             this.CloseBtn.Margin = new System.Windows.Forms.Padding(0);
             this.CloseBtn.Name = "CloseBtn";
             this.CloseBtn.Size = new System.Drawing.Size(14, 14);
@@ -329,7 +329,7 @@
             // 
             this.AddBtn.BackColor = System.Drawing.Color.Transparent;
             this.AddBtn.Image = global::alarm_eve.Properties.Resources.add1;
-            this.AddBtn.Location = new System.Drawing.Point(247, 0);
+            this.AddBtn.Location = new System.Drawing.Point(320, 0);
             this.AddBtn.Margin = new System.Windows.Forms.Padding(0);
             this.AddBtn.Name = "AddBtn";
             this.AddBtn.Size = new System.Drawing.Size(20, 17);
@@ -344,7 +344,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(44)))));
-            this.ClientSize = new System.Drawing.Size(287, 458);
+            this.ClientSize = new System.Drawing.Size(362, 458);
             this.Controls.Add(this.MinBtn);
             this.Controls.Add(this.CloseBtn);
             this.Controls.Add(this.AddBtn);

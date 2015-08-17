@@ -16,8 +16,8 @@ namespace alarm_eve
         {
             // 初始化七牛
             Qiniu.Conf.Config.Init();
-            Qiniu.Conf.Config.ACCESS_KEY = "";
-            Qiniu.Conf.Config.SECRET_KEY = "";
+            Qiniu.Conf.Config.ACCESS_KEY = "02YfE38C5Qxx61yiCHOiXNxeMUD6PsqRSNONMCmi";
+            Qiniu.Conf.Config.SECRET_KEY = "7ZT8RhIwjsUpW9M9Y4hWXQAtxw5zVb_N_0rraD7t";
             // 开启主窗口
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
