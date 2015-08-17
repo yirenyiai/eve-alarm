@@ -46,7 +46,6 @@
             this.ShowItemCount = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SyncBtn = new System.Windows.Forms.Button();
-            this.LockBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AlramList
@@ -58,7 +57,7 @@
             this.AlramList.FullRowSelect = true;
             this.AlramList.Location = new System.Drawing.Point(0, 0);
             this.AlramList.Name = "AlramList";
-            this.AlramList.Size = new System.Drawing.Size(634, 252);
+            this.AlramList.Size = new System.Drawing.Size(634, 273);
             this.AlramList.TabIndex = 0;
             this.AlramList.UseCompatibleStateImageBehavior = false;
             this.AlramList.View = System.Windows.Forms.View.Details;
@@ -77,16 +76,16 @@
             // RoleEdit
             // 
             this.RoleEdit.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.RoleEdit.Location = new System.Drawing.Point(115, 268);
+            this.RoleEdit.Location = new System.Drawing.Point(115, 290);
             this.RoleEdit.Name = "RoleEdit";
-            this.RoleEdit.Size = new System.Drawing.Size(228, 33);
+            this.RoleEdit.Size = new System.Drawing.Size(342, 33);
             this.RoleEdit.TabIndex = 1;
             // 
             // AddAlramBtn
             // 
-            this.AddAlramBtn.Location = new System.Drawing.Point(471, 311);
+            this.AddAlramBtn.Location = new System.Drawing.Point(493, 339);
             this.AddAlramBtn.Name = "AddAlramBtn";
-            this.AddAlramBtn.Size = new System.Drawing.Size(108, 26);
+            this.AddAlramBtn.Size = new System.Drawing.Size(108, 28);
             this.AddAlramBtn.TabIndex = 2;
             this.AddAlramBtn.Text = "添加任务";
             this.AddAlramBtn.UseVisualStyleBackColor = true;
@@ -96,7 +95,7 @@
             // 
             this.EveAccountEdit.AutoSize = true;
             this.EveAccountEdit.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.EveAccountEdit.Location = new System.Drawing.Point(20, 271);
+            this.EveAccountEdit.Location = new System.Drawing.Point(20, 294);
             this.EveAccountEdit.Name = "EveAccountEdit";
             this.EveAccountEdit.Size = new System.Drawing.Size(50, 25);
             this.EveAccountEdit.TabIndex = 3;
@@ -106,7 +105,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(20, 308);
+            this.label1.Location = new System.Drawing.Point(20, 334);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 25);
             this.label1.TabIndex = 3;
@@ -115,16 +114,16 @@
             // MaturityDate
             // 
             this.MaturityDate.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.MaturityDate.Location = new System.Drawing.Point(114, 308);
+            this.MaturityDate.Location = new System.Drawing.Point(114, 334);
             this.MaturityDate.Name = "MaturityDate";
-            this.MaturityDate.Size = new System.Drawing.Size(229, 33);
+            this.MaturityDate.Size = new System.Drawing.Size(343, 33);
             this.MaturityDate.TabIndex = 4;
             // 
             // Delete
             // 
-            this.Delete.Location = new System.Drawing.Point(357, 311);
+            this.Delete.Location = new System.Drawing.Point(493, 407);
             this.Delete.Name = "Delete";
-            this.Delete.Size = new System.Drawing.Size(108, 26);
+            this.Delete.Size = new System.Drawing.Size(108, 28);
             this.Delete.TabIndex = 2;
             this.Delete.Text = "删除";
             this.Delete.UseVisualStyleBackColor = true;
@@ -132,9 +131,9 @@
             // 
             // AutoStartBtn
             // 
-            this.AutoStartBtn.Location = new System.Drawing.Point(357, 348);
+            this.AutoStartBtn.Location = new System.Drawing.Point(493, 373);
             this.AutoStartBtn.Name = "AutoStartBtn";
-            this.AutoStartBtn.Size = new System.Drawing.Size(108, 26);
+            this.AutoStartBtn.Size = new System.Drawing.Size(108, 28);
             this.AutoStartBtn.TabIndex = 2;
             this.AutoStartBtn.Text = "开机启动";
             this.AutoStartBtn.UseVisualStyleBackColor = true;
@@ -145,9 +144,9 @@
             this.ShowAccount.AutoSize = true;
             this.ShowAccount.Checked = true;
             this.ShowAccount.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ShowAccount.Location = new System.Drawing.Point(42, 379);
+            this.ShowAccount.Location = new System.Drawing.Point(25, 418);
             this.ShowAccount.Name = "ShowAccount";
-            this.ShowAccount.Size = new System.Drawing.Size(72, 16);
+            this.ShowAccount.Size = new System.Drawing.Size(74, 17);
             this.ShowAccount.TabIndex = 5;
             this.ShowAccount.Text = "显示备注";
             this.ShowAccount.UseVisualStyleBackColor = true;
@@ -158,9 +157,9 @@
             this.ShowMaturityDate.AutoSize = true;
             this.ShowMaturityDate.Checked = true;
             this.ShowMaturityDate.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ShowMaturityDate.Location = new System.Drawing.Point(120, 379);
+            this.ShowMaturityDate.Location = new System.Drawing.Point(103, 418);
             this.ShowMaturityDate.Name = "ShowMaturityDate";
-            this.ShowMaturityDate.Size = new System.Drawing.Size(120, 16);
+            this.ShowMaturityDate.Size = new System.Drawing.Size(122, 17);
             this.ShowMaturityDate.TabIndex = 5;
             this.ShowMaturityDate.Text = "显示计划到期时间";
             this.ShowMaturityDate.UseVisualStyleBackColor = true;
@@ -171,9 +170,9 @@
             this.ShowTimer.AutoSize = true;
             this.ShowTimer.Checked = true;
             this.ShowTimer.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ShowTimer.Location = new System.Drawing.Point(246, 379);
+            this.ShowTimer.Location = new System.Drawing.Point(229, 418);
             this.ShowTimer.Name = "ShowTimer";
-            this.ShowTimer.Size = new System.Drawing.Size(84, 16);
+            this.ShowTimer.Size = new System.Drawing.Size(86, 17);
             this.ShowTimer.TabIndex = 5;
             this.ShowTimer.Text = "显示倒计时";
             this.ShowTimer.UseVisualStyleBackColor = true;
@@ -182,9 +181,9 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(45, 356);
+            this.label2.Location = new System.Drawing.Point(22, 392);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 12);
+            this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "一次性显示\r\n";
             // 
@@ -198,9 +197,9 @@
             "3",
             "4",
             "5"});
-            this.ShowItemCount.Location = new System.Drawing.Point(119, 352);
+            this.ShowItemCount.Location = new System.Drawing.Point(95, 389);
             this.ShowItemCount.Name = "ShowItemCount";
-            this.ShowItemCount.Size = new System.Drawing.Size(59, 20);
+            this.ShowItemCount.Size = new System.Drawing.Size(59, 21);
             this.ShowItemCount.TabIndex = 7;
             this.ShowItemCount.Text = "1";
             this.ShowItemCount.SelectedIndexChanged += new System.EventHandler(this.ShowItemCount_SelectedIndexChanged);
@@ -208,17 +207,17 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(197, 356);
+            this.label3.Location = new System.Drawing.Point(160, 392);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 12);
+            this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 8;
             this.label3.Text = "条信息";
             // 
             // SyncBtn
             // 
-            this.SyncBtn.Location = new System.Drawing.Point(471, 274);
+            this.SyncBtn.Location = new System.Drawing.Point(493, 305);
             this.SyncBtn.Name = "SyncBtn";
-            this.SyncBtn.Size = new System.Drawing.Size(108, 26);
+            this.SyncBtn.Size = new System.Drawing.Size(108, 28);
             this.SyncBtn.TabIndex = 2;
             this.SyncBtn.Text = "同步数据";
             this.SyncBtn.UseVisualStyleBackColor = true;
@@ -226,9 +225,9 @@
             // 
             // AlarmListDialog
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 416);
+            this.ClientSize = new System.Drawing.Size(634, 451);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ShowItemCount);
             this.Controls.Add(this.label2);
@@ -239,7 +238,6 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.EveAccountEdit);
             this.Controls.Add(this.Delete);
-            this.Controls.Add(this.LockBtn);
             this.Controls.Add(this.SyncBtn);
             this.Controls.Add(this.AutoStartBtn);
             this.Controls.Add(this.AddAlramBtn);
@@ -247,7 +245,7 @@
             this.Controls.Add(this.AlramList);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(508, 372);
+            this.MinimumSize = new System.Drawing.Size(508, 400);
             this.Name = "AlarmListDialog";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -277,6 +275,5 @@
         private System.Windows.Forms.ComboBox ShowItemCount;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button SyncBtn;
-        private System.Windows.Forms.Button LockBtn;
     }
 }

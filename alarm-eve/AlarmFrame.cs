@@ -25,12 +25,12 @@ namespace alarm_eve
         System.Timers.Timer m_TimerFreshSkillsStatus = new System.Timers.Timer(1000);
         ArrayList m_SkillsDTArray = new ArrayList();
         ArrayList m_ControlSetArray = new ArrayList();
+        public Point m_ptInForm = new Point(); 
 
         #region 热键模块
         private const uint WS_EX_LAYERED = 0x80000;
         private const int WS_EX_TRANSPARENT = 0x20;
         private const int GWL_EXSTYLE = (-20);
-        private string Var_genre = "";//记录当前操作的类型 
 
         [DllImport("user32.dll")]
         private static extern int RegisterHotKey(IntPtr hwnd, int id, int fsModifiers, int vk);
@@ -178,16 +178,16 @@ namespace alarm_eve
                     this.Height = 76;
                     break;
                 case 2:
-                    this.Height = 155;
+                    this.Height = 175;
                     break;
                 case 3:
-                    this.Height = 239;
+                    this.Height = 270;
                     break;
                 case 4:
-                    this.Height = 326;
+                    this.Height = 358;
                     break;
                 case 5:
-                    this.Height = 405;
+                    this.Height = 455;
                     break;
             }
 
@@ -467,6 +467,25 @@ namespace alarm_eve
 
         private void AlarmFrame_KeyDown(object sender, KeyEventArgs e)
         {
+        }
+
+        private void SkillsStatue_5_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                Point CurrentMousePoint = Control.MousePosition;//获取当前鼠标的屏幕坐标 
+                CurrentMousePoint.Offset(m_ptInForm.X, m_ptInForm.Y);//重载当前鼠标的位置 
+                this.DesktopLocation = CurrentMousePoint;//设置当前窗体在屏幕上的位置 
+            } 
+        }
+
+        private void SkillsStatue_5_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                m_ptInForm.Y = -e.Y;
+                m_ptInForm.X = -e.X;
+            }
         }
     }
 
