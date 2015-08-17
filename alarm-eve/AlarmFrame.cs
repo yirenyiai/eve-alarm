@@ -111,9 +111,15 @@ namespace alarm_eve
             if (intExTemp == (WS_EX_TRANSPARENT | WS_EX_LAYERED))
             {
                 uint oldGWLEx = SetWindowLong(this.Handle, GWL_EXSTYLE, WS_EX_LAYERED);
+                AddBtn.Visible = true;
+                MinBtn.Visible = true;
+                CloseBtn.Visible = true;
             }
             else {
                 uint oldGWLEx = SetWindowLong(this.Handle, GWL_EXSTYLE, WS_EX_TRANSPARENT | WS_EX_LAYERED);
+                AddBtn.Visible = false;
+                MinBtn.Visible = false;
+                CloseBtn.Visible = false;
             }
         }
         /// <summary> 
@@ -122,7 +128,8 @@ namespace alarm_eve
         /// 
         void IncreaseOpacity()
         {
-            this.TransparencyKey = Color.DarkGray; //让窗体不透明  
+            this.TransparencyKey = this.ForeColor; //让窗体透明   
+            this.Opacity += 0.1;
         }
         /// 
         /// <summary> 
@@ -131,6 +138,7 @@ namespace alarm_eve
         void LowerOpacity()
         {
             this.TransparencyKey = this.BackColor; //让窗体透明   
+            this.Opacity -= 0.1;
         }
         #endregion
 
@@ -411,7 +419,7 @@ namespace alarm_eve
         {
             InitControlSet();
             SetFormRoundRectRgn(5);
-            Win32.SetClassLong(this.Handle, GCL_STYLE, Win32.GetClassLong(this.Handle, GCL_STYLE) | CS_DropSHADOW);
+            //Win32.SetClassLong(this.Handle, GCL_STYLE, Win32.GetClassLong(this.Handle, GCL_STYLE) | CS_DropSHADOW);
             this.TrayIcon.Visible = true;
             this.TrayIcon.ContextMenuStrip = this.TrayIconContentMenu;
             this.ShowInTaskbar = false;

@@ -144,7 +144,7 @@
             this.ShowAccount.AutoSize = true;
             this.ShowAccount.Checked = true;
             this.ShowAccount.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ShowAccount.Location = new System.Drawing.Point(22, 422);
+            this.ShowAccount.Location = new System.Drawing.Point(22, 412);
             this.ShowAccount.Name = "ShowAccount";
             this.ShowAccount.Size = new System.Drawing.Size(74, 17);
             this.ShowAccount.TabIndex = 5;
@@ -157,7 +157,7 @@
             this.ShowMaturityDate.AutoSize = true;
             this.ShowMaturityDate.Checked = true;
             this.ShowMaturityDate.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ShowMaturityDate.Location = new System.Drawing.Point(100, 422);
+            this.ShowMaturityDate.Location = new System.Drawing.Point(100, 412);
             this.ShowMaturityDate.Name = "ShowMaturityDate";
             this.ShowMaturityDate.Size = new System.Drawing.Size(122, 17);
             this.ShowMaturityDate.TabIndex = 5;
@@ -170,7 +170,7 @@
             this.ShowTimer.AutoSize = true;
             this.ShowTimer.Checked = true;
             this.ShowTimer.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ShowTimer.Location = new System.Drawing.Point(226, 422);
+            this.ShowTimer.Location = new System.Drawing.Point(226, 412);
             this.ShowTimer.Name = "ShowTimer";
             this.ShowTimer.Size = new System.Drawing.Size(86, 17);
             this.ShowTimer.TabIndex = 5;
@@ -181,7 +181,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 396);
+            this.label2.Location = new System.Drawing.Point(19, 386);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 6;
@@ -197,7 +197,7 @@
             "3",
             "4",
             "5"});
-            this.ShowItemCount.Location = new System.Drawing.Point(92, 393);
+            this.ShowItemCount.Location = new System.Drawing.Point(92, 383);
             this.ShowItemCount.Name = "ShowItemCount";
             this.ShowItemCount.Size = new System.Drawing.Size(59, 21);
             this.ShowItemCount.TabIndex = 7;
@@ -207,7 +207,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(157, 396);
+            this.label3.Location = new System.Drawing.Point(157, 386);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 8;
