@@ -35,9 +35,6 @@
             this.SkillsStatue_1 = new System.Windows.Forms.Label();
             this.TrayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.TrayImageList = new System.Windows.Forms.ImageList(this.components);
-            this.MinBtn = new System.Windows.Forms.PictureBox();
-            this.CloseBtn = new System.Windows.Forms.PictureBox();
-            this.AddBtn = new System.Windows.Forms.PictureBox();
             this.TrayIconContentMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ExitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RoleName_2 = new System.Windows.Forms.Label();
@@ -52,15 +49,20 @@
             this.RoleName_5 = new System.Windows.Forms.Label();
             this.MaturityDate_5 = new System.Windows.Forms.Label();
             this.SkillsStatue_5 = new System.Windows.Forms.Label();
+            this.MinBtn = new System.Windows.Forms.PictureBox();
+            this.CloseBtn = new System.Windows.Forms.PictureBox();
+            this.AddBtn = new System.Windows.Forms.PictureBox();
+            this.TrayIconContentMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.MinBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddBtn)).BeginInit();
-            this.TrayIconContentMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // RoleName_1
             // 
+            this.RoleName_1.AutoEllipsis = true;
             this.RoleName_1.AutoSize = true;
+            this.RoleName_1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.RoleName_1.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.RoleName_1.ForeColor = System.Drawing.Color.GreenYellow;
             this.RoleName_1.Location = new System.Drawing.Point(7, 5);
@@ -69,11 +71,12 @@
             this.RoleName_1.TabIndex = 0;
             this.RoleName_1.Text = "名字: ";
             this.RoleName_1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
-            this.RoleName_1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseMove);
             // 
             // MaturityDate_1
             // 
+            this.MaturityDate_1.AutoEllipsis = true;
             this.MaturityDate_1.AutoSize = true;
+            this.MaturityDate_1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.MaturityDate_1.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.MaturityDate_1.ForeColor = System.Drawing.Color.GreenYellow;
             this.MaturityDate_1.Location = new System.Drawing.Point(7, 28);
@@ -82,11 +85,12 @@
             this.MaturityDate_1.TabIndex = 0;
             this.MaturityDate_1.Text = "完成时间";
             this.MaturityDate_1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
-            this.MaturityDate_1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseMove);
             // 
             // SkillsStatue_1
             // 
+            this.SkillsStatue_1.AutoEllipsis = true;
             this.SkillsStatue_1.AutoSize = true;
+            this.SkillsStatue_1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.SkillsStatue_1.Font = new System.Drawing.Font("Microsoft YaHei", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.SkillsStatue_1.ForeColor = System.Drawing.Color.GreenYellow;
             this.SkillsStatue_1.Location = new System.Drawing.Point(6, 50);
@@ -95,7 +99,6 @@
             this.SkillsStatue_1.TabIndex = 0;
             this.SkillsStatue_1.Text = "倒计时";
             this.SkillsStatue_1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
-            this.SkillsStatue_1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseMove);
             // 
             // TrayIcon
             // 
@@ -110,6 +113,191 @@
             this.TrayImageList.TransparentColor = System.Drawing.Color.Transparent;
             this.TrayImageList.Images.SetKeyName(0, "TrayIcon.ico");
             this.TrayImageList.Images.SetKeyName(1, "TrayIconNULL.ico");
+            // 
+            // TrayIconContentMenu
+            // 
+            this.TrayIconContentMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ExitMenuItem});
+            this.TrayIconContentMenu.Name = "TrayIconContentMenu";
+            this.TrayIconContentMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.TrayIconContentMenu.ShowImageMargin = false;
+            this.TrayIconContentMenu.ShowItemToolTips = false;
+            this.TrayIconContentMenu.Size = new System.Drawing.Size(76, 26);
+            // 
+            // ExitMenuItem
+            // 
+            this.ExitMenuItem.Name = "ExitMenuItem";
+            this.ExitMenuItem.Size = new System.Drawing.Size(75, 22);
+            this.ExitMenuItem.Text = "退出";
+            this.ExitMenuItem.Click += new System.EventHandler(this.ExitMenuItem_Click);
+            // 
+            // RoleName_2
+            // 
+            this.RoleName_2.AutoEllipsis = true;
+            this.RoleName_2.AutoSize = true;
+            this.RoleName_2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RoleName_2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.RoleName_2.ForeColor = System.Drawing.Color.GreenYellow;
+            this.RoleName_2.Location = new System.Drawing.Point(7, 89);
+            this.RoleName_2.Name = "RoleName_2";
+            this.RoleName_2.Size = new System.Drawing.Size(51, 21);
+            this.RoleName_2.TabIndex = 0;
+            this.RoleName_2.Text = "名字: ";
+            this.RoleName_2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
+            // 
+            // MaturityDate_2
+            // 
+            this.MaturityDate_2.AutoEllipsis = true;
+            this.MaturityDate_2.AutoSize = true;
+            this.MaturityDate_2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.MaturityDate_2.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.MaturityDate_2.ForeColor = System.Drawing.Color.GreenYellow;
+            this.MaturityDate_2.Location = new System.Drawing.Point(7, 112);
+            this.MaturityDate_2.Name = "MaturityDate_2";
+            this.MaturityDate_2.Size = new System.Drawing.Size(65, 20);
+            this.MaturityDate_2.TabIndex = 0;
+            this.MaturityDate_2.Text = "完成时间";
+            this.MaturityDate_2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
+            // 
+            // SkillsStatue_2
+            // 
+            this.SkillsStatue_2.AutoEllipsis = true;
+            this.SkillsStatue_2.AutoSize = true;
+            this.SkillsStatue_2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SkillsStatue_2.Font = new System.Drawing.Font("Microsoft YaHei", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.SkillsStatue_2.ForeColor = System.Drawing.Color.GreenYellow;
+            this.SkillsStatue_2.Location = new System.Drawing.Point(6, 133);
+            this.SkillsStatue_2.Name = "SkillsStatue_2";
+            this.SkillsStatue_2.Size = new System.Drawing.Size(72, 27);
+            this.SkillsStatue_2.TabIndex = 0;
+            this.SkillsStatue_2.Text = "倒计时";
+            this.SkillsStatue_2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
+            // 
+            // RoleName_3
+            // 
+            this.RoleName_3.AutoEllipsis = true;
+            this.RoleName_3.AutoSize = true;
+            this.RoleName_3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RoleName_3.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.RoleName_3.ForeColor = System.Drawing.Color.GreenYellow;
+            this.RoleName_3.Location = new System.Drawing.Point(7, 179);
+            this.RoleName_3.Name = "RoleName_3";
+            this.RoleName_3.Size = new System.Drawing.Size(51, 21);
+            this.RoleName_3.TabIndex = 0;
+            this.RoleName_3.Text = "名字: ";
+            this.RoleName_3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
+            // 
+            // MaturityDate_3
+            // 
+            this.MaturityDate_3.AutoEllipsis = true;
+            this.MaturityDate_3.AutoSize = true;
+            this.MaturityDate_3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.MaturityDate_3.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.MaturityDate_3.ForeColor = System.Drawing.Color.GreenYellow;
+            this.MaturityDate_3.Location = new System.Drawing.Point(7, 202);
+            this.MaturityDate_3.Name = "MaturityDate_3";
+            this.MaturityDate_3.Size = new System.Drawing.Size(65, 20);
+            this.MaturityDate_3.TabIndex = 0;
+            this.MaturityDate_3.Text = "完成时间";
+            this.MaturityDate_3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
+            // 
+            // SkillsStatue_3
+            // 
+            this.SkillsStatue_3.AutoEllipsis = true;
+            this.SkillsStatue_3.AutoSize = true;
+            this.SkillsStatue_3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SkillsStatue_3.Font = new System.Drawing.Font("Microsoft YaHei", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.SkillsStatue_3.ForeColor = System.Drawing.Color.GreenYellow;
+            this.SkillsStatue_3.Location = new System.Drawing.Point(6, 223);
+            this.SkillsStatue_3.Name = "SkillsStatue_3";
+            this.SkillsStatue_3.Size = new System.Drawing.Size(72, 27);
+            this.SkillsStatue_3.TabIndex = 0;
+            this.SkillsStatue_3.Text = "倒计时";
+            this.SkillsStatue_3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
+            // 
+            // RoleName_4
+            // 
+            this.RoleName_4.AutoEllipsis = true;
+            this.RoleName_4.AutoSize = true;
+            this.RoleName_4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RoleName_4.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.RoleName_4.ForeColor = System.Drawing.Color.GreenYellow;
+            this.RoleName_4.Location = new System.Drawing.Point(7, 273);
+            this.RoleName_4.Name = "RoleName_4";
+            this.RoleName_4.Size = new System.Drawing.Size(51, 21);
+            this.RoleName_4.TabIndex = 0;
+            this.RoleName_4.Text = "名字: ";
+            this.RoleName_4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
+            // 
+            // MaturityDate_4
+            // 
+            this.MaturityDate_4.AutoEllipsis = true;
+            this.MaturityDate_4.AutoSize = true;
+            this.MaturityDate_4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.MaturityDate_4.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.MaturityDate_4.ForeColor = System.Drawing.Color.GreenYellow;
+            this.MaturityDate_4.Location = new System.Drawing.Point(7, 296);
+            this.MaturityDate_4.Name = "MaturityDate_4";
+            this.MaturityDate_4.Size = new System.Drawing.Size(65, 20);
+            this.MaturityDate_4.TabIndex = 0;
+            this.MaturityDate_4.Text = "完成时间";
+            this.MaturityDate_4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
+            // 
+            // SkillsStatue_4
+            // 
+            this.SkillsStatue_4.AutoEllipsis = true;
+            this.SkillsStatue_4.AutoSize = true;
+            this.SkillsStatue_4.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SkillsStatue_4.Font = new System.Drawing.Font("Microsoft YaHei", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.SkillsStatue_4.ForeColor = System.Drawing.Color.GreenYellow;
+            this.SkillsStatue_4.Location = new System.Drawing.Point(6, 317);
+            this.SkillsStatue_4.Name = "SkillsStatue_4";
+            this.SkillsStatue_4.Size = new System.Drawing.Size(72, 27);
+            this.SkillsStatue_4.TabIndex = 0;
+            this.SkillsStatue_4.Text = "倒计时";
+            this.SkillsStatue_4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
+            // 
+            // RoleName_5
+            // 
+            this.RoleName_5.AutoEllipsis = true;
+            this.RoleName_5.AutoSize = true;
+            this.RoleName_5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.RoleName_5.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.RoleName_5.ForeColor = System.Drawing.Color.GreenYellow;
+            this.RoleName_5.Location = new System.Drawing.Point(7, 360);
+            this.RoleName_5.Name = "RoleName_5";
+            this.RoleName_5.Size = new System.Drawing.Size(51, 21);
+            this.RoleName_5.TabIndex = 0;
+            this.RoleName_5.Text = "名字: ";
+            this.RoleName_5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
+            // 
+            // MaturityDate_5
+            // 
+            this.MaturityDate_5.AutoEllipsis = true;
+            this.MaturityDate_5.AutoSize = true;
+            this.MaturityDate_5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.MaturityDate_5.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.MaturityDate_5.ForeColor = System.Drawing.Color.GreenYellow;
+            this.MaturityDate_5.Location = new System.Drawing.Point(7, 382);
+            this.MaturityDate_5.Name = "MaturityDate_5";
+            this.MaturityDate_5.Size = new System.Drawing.Size(65, 20);
+            this.MaturityDate_5.TabIndex = 0;
+            this.MaturityDate_5.Text = "完成时间";
+            this.MaturityDate_5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
+            // 
+            // SkillsStatue_5
+            // 
+            this.SkillsStatue_5.AutoEllipsis = true;
+            this.SkillsStatue_5.AutoSize = true;
+            this.SkillsStatue_5.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.SkillsStatue_5.Font = new System.Drawing.Font("Microsoft YaHei", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.SkillsStatue_5.ForeColor = System.Drawing.Color.GreenYellow;
+            this.SkillsStatue_5.Location = new System.Drawing.Point(6, 404);
+            this.SkillsStatue_5.Name = "SkillsStatue_5";
+            this.SkillsStatue_5.Size = new System.Drawing.Size(72, 27);
+            this.SkillsStatue_5.TabIndex = 0;
+            this.SkillsStatue_5.Text = "倒计时";
+            this.SkillsStatue_5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // MinBtn
             // 
@@ -141,188 +329,15 @@
             // 
             this.AddBtn.BackColor = System.Drawing.Color.Transparent;
             this.AddBtn.Image = global::alarm_eve.Properties.Resources.add1;
-            this.AddBtn.Location = new System.Drawing.Point(241, -5);
+            this.AddBtn.Location = new System.Drawing.Point(247, 0);
             this.AddBtn.Margin = new System.Windows.Forms.Padding(0);
             this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(25, 26);
+            this.AddBtn.Size = new System.Drawing.Size(20, 17);
             this.AddBtn.TabIndex = 2;
             this.AddBtn.TabStop = false;
             this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
             this.AddBtn.MouseLeave += new System.EventHandler(this.ImageBtn_Leave);
             this.AddBtn.MouseHover += new System.EventHandler(this.ImageBtn_Hover);
-            // 
-            // TrayIconContentMenu
-            // 
-            this.TrayIconContentMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ExitMenuItem});
-            this.TrayIconContentMenu.Name = "TrayIconContentMenu";
-            this.TrayIconContentMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
-            this.TrayIconContentMenu.ShowImageMargin = false;
-            this.TrayIconContentMenu.ShowItemToolTips = false;
-            this.TrayIconContentMenu.Size = new System.Drawing.Size(76, 26);
-            // 
-            // ExitMenuItem
-            // 
-            this.ExitMenuItem.Name = "ExitMenuItem";
-            this.ExitMenuItem.Size = new System.Drawing.Size(75, 22);
-            this.ExitMenuItem.Text = "退出";
-            this.ExitMenuItem.Click += new System.EventHandler(this.ExitMenuItem_Click);
-            // 
-            // RoleName_2
-            // 
-            this.RoleName_2.AutoSize = true;
-            this.RoleName_2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.RoleName_2.ForeColor = System.Drawing.Color.GreenYellow;
-            this.RoleName_2.Location = new System.Drawing.Point(7, 89);
-            this.RoleName_2.Name = "RoleName_2";
-            this.RoleName_2.Size = new System.Drawing.Size(51, 21);
-            this.RoleName_2.TabIndex = 0;
-            this.RoleName_2.Text = "名字: ";
-            this.RoleName_2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
-            this.RoleName_2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseMove);
-            // 
-            // MaturityDate_2
-            // 
-            this.MaturityDate_2.AutoSize = true;
-            this.MaturityDate_2.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.MaturityDate_2.ForeColor = System.Drawing.Color.GreenYellow;
-            this.MaturityDate_2.Location = new System.Drawing.Point(7, 112);
-            this.MaturityDate_2.Name = "MaturityDate_2";
-            this.MaturityDate_2.Size = new System.Drawing.Size(65, 20);
-            this.MaturityDate_2.TabIndex = 0;
-            this.MaturityDate_2.Text = "完成时间";
-            this.MaturityDate_2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
-            this.MaturityDate_2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseMove);
-            // 
-            // SkillsStatue_2
-            // 
-            this.SkillsStatue_2.AutoSize = true;
-            this.SkillsStatue_2.Font = new System.Drawing.Font("Microsoft YaHei", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.SkillsStatue_2.ForeColor = System.Drawing.Color.GreenYellow;
-            this.SkillsStatue_2.Location = new System.Drawing.Point(6, 133);
-            this.SkillsStatue_2.Name = "SkillsStatue_2";
-            this.SkillsStatue_2.Size = new System.Drawing.Size(72, 27);
-            this.SkillsStatue_2.TabIndex = 0;
-            this.SkillsStatue_2.Text = "倒计时";
-            this.SkillsStatue_2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
-            this.SkillsStatue_2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseMove);
-            // 
-            // RoleName_3
-            // 
-            this.RoleName_3.AutoSize = true;
-            this.RoleName_3.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.RoleName_3.ForeColor = System.Drawing.Color.GreenYellow;
-            this.RoleName_3.Location = new System.Drawing.Point(7, 179);
-            this.RoleName_3.Name = "RoleName_3";
-            this.RoleName_3.Size = new System.Drawing.Size(51, 21);
-            this.RoleName_3.TabIndex = 0;
-            this.RoleName_3.Text = "名字: ";
-            this.RoleName_3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
-            this.RoleName_3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseMove);
-            // 
-            // MaturityDate_3
-            // 
-            this.MaturityDate_3.AutoSize = true;
-            this.MaturityDate_3.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.MaturityDate_3.ForeColor = System.Drawing.Color.GreenYellow;
-            this.MaturityDate_3.Location = new System.Drawing.Point(7, 202);
-            this.MaturityDate_3.Name = "MaturityDate_3";
-            this.MaturityDate_3.Size = new System.Drawing.Size(65, 20);
-            this.MaturityDate_3.TabIndex = 0;
-            this.MaturityDate_3.Text = "完成时间";
-            this.MaturityDate_3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
-            this.MaturityDate_3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseMove);
-            // 
-            // SkillsStatue_3
-            // 
-            this.SkillsStatue_3.AutoSize = true;
-            this.SkillsStatue_3.Font = new System.Drawing.Font("Microsoft YaHei", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.SkillsStatue_3.ForeColor = System.Drawing.Color.GreenYellow;
-            this.SkillsStatue_3.Location = new System.Drawing.Point(6, 223);
-            this.SkillsStatue_3.Name = "SkillsStatue_3";
-            this.SkillsStatue_3.Size = new System.Drawing.Size(72, 27);
-            this.SkillsStatue_3.TabIndex = 0;
-            this.SkillsStatue_3.Text = "倒计时";
-            this.SkillsStatue_3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
-            this.SkillsStatue_3.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseMove);
-            // 
-            // RoleName_4
-            // 
-            this.RoleName_4.AutoSize = true;
-            this.RoleName_4.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.RoleName_4.ForeColor = System.Drawing.Color.GreenYellow;
-            this.RoleName_4.Location = new System.Drawing.Point(7, 273);
-            this.RoleName_4.Name = "RoleName_4";
-            this.RoleName_4.Size = new System.Drawing.Size(51, 21);
-            this.RoleName_4.TabIndex = 0;
-            this.RoleName_4.Text = "名字: ";
-            this.RoleName_4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
-            this.RoleName_4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseMove);
-            // 
-            // MaturityDate_4
-            // 
-            this.MaturityDate_4.AutoSize = true;
-            this.MaturityDate_4.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.MaturityDate_4.ForeColor = System.Drawing.Color.GreenYellow;
-            this.MaturityDate_4.Location = new System.Drawing.Point(7, 296);
-            this.MaturityDate_4.Name = "MaturityDate_4";
-            this.MaturityDate_4.Size = new System.Drawing.Size(65, 20);
-            this.MaturityDate_4.TabIndex = 0;
-            this.MaturityDate_4.Text = "完成时间";
-            this.MaturityDate_4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
-            this.MaturityDate_4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseMove);
-            // 
-            // SkillsStatue_4
-            // 
-            this.SkillsStatue_4.AutoSize = true;
-            this.SkillsStatue_4.Font = new System.Drawing.Font("Microsoft YaHei", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.SkillsStatue_4.ForeColor = System.Drawing.Color.GreenYellow;
-            this.SkillsStatue_4.Location = new System.Drawing.Point(6, 317);
-            this.SkillsStatue_4.Name = "SkillsStatue_4";
-            this.SkillsStatue_4.Size = new System.Drawing.Size(72, 27);
-            this.SkillsStatue_4.TabIndex = 0;
-            this.SkillsStatue_4.Text = "倒计时";
-            this.SkillsStatue_4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
-            this.SkillsStatue_4.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseMove);
-            // 
-            // RoleName_5
-            // 
-            this.RoleName_5.AutoSize = true;
-            this.RoleName_5.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.RoleName_5.ForeColor = System.Drawing.Color.GreenYellow;
-            this.RoleName_5.Location = new System.Drawing.Point(7, 360);
-            this.RoleName_5.Name = "RoleName_5";
-            this.RoleName_5.Size = new System.Drawing.Size(51, 21);
-            this.RoleName_5.TabIndex = 0;
-            this.RoleName_5.Text = "名字: ";
-            this.RoleName_5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
-            this.RoleName_5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseMove);
-            // 
-            // MaturityDate_5
-            // 
-            this.MaturityDate_5.AutoSize = true;
-            this.MaturityDate_5.Font = new System.Drawing.Font("Microsoft YaHei", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.MaturityDate_5.ForeColor = System.Drawing.Color.GreenYellow;
-            this.MaturityDate_5.Location = new System.Drawing.Point(7, 382);
-            this.MaturityDate_5.Name = "MaturityDate_5";
-            this.MaturityDate_5.Size = new System.Drawing.Size(65, 20);
-            this.MaturityDate_5.TabIndex = 0;
-            this.MaturityDate_5.Text = "完成时间";
-            this.MaturityDate_5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
-            this.MaturityDate_5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseMove);
-            // 
-            // SkillsStatue_5
-            // 
-            this.SkillsStatue_5.AutoSize = true;
-            this.SkillsStatue_5.Font = new System.Drawing.Font("Microsoft YaHei", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.SkillsStatue_5.ForeColor = System.Drawing.Color.GreenYellow;
-            this.SkillsStatue_5.Location = new System.Drawing.Point(6, 404);
-            this.SkillsStatue_5.Name = "SkillsStatue_5";
-            this.SkillsStatue_5.Size = new System.Drawing.Size(72, 27);
-            this.SkillsStatue_5.TabIndex = 0;
-            this.SkillsStatue_5.Text = "倒计时";
-            this.SkillsStatue_5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
-            this.SkillsStatue_5.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseMove);
             // 
             // AlarmFrame
             // 
@@ -357,12 +372,11 @@
             this.Text = "计时器";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AlarmFrame_FormClosing);
             this.Load += new System.EventHandler(this.AlarmFrame_Load);
-            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AlarmFrame_KeyDown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.TrayIconContentMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.MinBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.AddBtn)).EndInit();
-            this.TrayIconContentMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

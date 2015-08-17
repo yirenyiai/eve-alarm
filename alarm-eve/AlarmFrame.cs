@@ -44,6 +44,8 @@ namespace alarm_eve
         private const int MOD_CONTROL = 0x2; //CTRL 
         private const int MOD_SHIFT = 0x4; //SHIFT 
         private const int VK_SPACE = 0x20; //SPACE 
+        private const int VK_OEM_PLUS = 0xBB;
+        private const int VK_OEM_MINUS = 0xBD;
 
         /// <summary> 
 		/// 注册热键 
@@ -52,7 +54,7 @@ namespace alarm_eve
 		/// <param name="hotKey_id">热键ID</param> 
 		/// <param name="fsModifiers">组合键</param> 
 		/// <param name="vk">热键</param> 
-		private void RegKey(IntPtr hwnd, int hotKey_id, int fsModifiers, int vk)
+        private void RegKey(IntPtr hwnd, int hotKey_id, int fsModifiers, int vk, string ErroMsg = "注册热键失败!")
 		{
 		     bool result;
 		     if (RegisterHotKey(hwnd,hotKey_id,fsModifiers,vk) == 0)
@@ -65,7 +67,7 @@ namespace alarm_eve
 		     }
 		     if (!result)
 		     {
-		         MessageBox.Show("注册热键失败！");
+                 MessageBox.Show(ErroMsg);
 		     }
 		}
 		
@@ -114,7 +116,24 @@ namespace alarm_eve
                 uint oldGWLEx = SetWindowLong(this.Handle, GWL_EXSTYLE, WS_EX_TRANSPARENT | WS_EX_LAYERED);
             }
         }
+        /// <summary> 
+        /// 增大窗口的透明度
+        /// </summary> 
+        /// 
+        void IncreaseOpacity()
+        {
+            this.TransparencyKey = Color.DarkGray; //让窗体不透明  
+        }
+        /// 
+        /// <summary> 
+        /// 降低窗口的透明度
+        /// </summary> 
+        void LowerOpacity()
+        {
+            this.TransparencyKey = this.BackColor; //让窗体透明   
+        }
         #endregion
+
 
         public AlarmFrame()
         {
@@ -194,6 +213,12 @@ namespace alarm_eve
         }
 
         private void AlarmFrame_MouseDown(object sender, MouseEventArgs e)
+        {
+            Win32.ReleaseCapture();
+            Win32.SendMessage(this.Handle, Win32.WM_NCLBUTTONDOWN, Win32.HTCAPTION, 0);
+        }
+
+        private void SkillsStatue_5_MouseDown(object sender, MouseEventArgs e)
         {
             Win32.ReleaseCapture();
             Win32.SendMessage(this.Handle, Win32.WM_NCLBUTTONDOWN, Win32.HTCAPTION, 0);
@@ -446,15 +471,23 @@ namespace alarm_eve
             case WM_HOTKEY: //窗口消息-热键 
                 switch(m.WParam.ToInt32())
                 {
-                    case 32: //热键ID 
+                    case VK_SPACE: //热键ID 
                         Penetrate();
-                    break;
+                        break;
+                    case VK_OEM_PLUS:
+                        IncreaseOpacity();
+                        break;
+                    case VK_OEM_MINUS:
+                        LowerOpacity();
+                        break;
                     default:
                     break;
                 }
                 break;
             case WM_CREATE: //窗口消息-创建 
-                RegKey(Handle, Space, MOD_ALT | MOD_CONTROL , VK_SPACE); //注册热键 
+                RegKey(Handle, Space, MOD_ALT | MOD_CONTROL , VK_SPACE, "注册快捷键失败： 无法使用窗口固定功能"); //注册热键---鼠标穿透
+                RegKey(Handle, VK_OEM_PLUS, MOD_CONTROL , VK_OEM_PLUS, "注册快捷键失败： 无法增加透明度"); //注册热键---增加透明度
+                RegKey(Handle, VK_OEM_MINUS, MOD_CONTROL , VK_OEM_MINUS, "注册快捷键失败： 无法降低透明度"); //注册热键---降低透明度
                 break;
             case WM_DESTROY: //窗口消息-销毁 
                 UnRegKey(Handle,Space); //销毁热键 
@@ -465,28 +498,7 @@ namespace alarm_eve
 
         }
 
-        private void AlarmFrame_KeyDown(object sender, KeyEventArgs e)
-        {
-        }
 
-        private void SkillsStatue_5_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                Point CurrentMousePoint = Control.MousePosition;//获取当前鼠标的屏幕坐标 
-                CurrentMousePoint.Offset(m_ptInForm.X, m_ptInForm.Y);//重载当前鼠标的位置 
-                this.DesktopLocation = CurrentMousePoint;//设置当前窗体在屏幕上的位置 
-            } 
-        }
-
-        private void SkillsStatue_5_MouseDown(object sender, MouseEventArgs e)
-        {
-            if (e.Button == MouseButtons.Left)
-            {
-                m_ptInForm.Y = -e.Y;
-                m_ptInForm.X = -e.X;
-            }
-        }
     }
 
     public class ControlSet
