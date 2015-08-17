@@ -327,6 +327,7 @@
             this.Text = "计时器";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.AlarmFrame_FormClosing);
             this.Load += new System.EventHandler(this.AlarmFrame_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.AlarmFrame_KeyDown);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
             ((System.ComponentModel.ISupportInitialize)(this.MinBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).EndInit();

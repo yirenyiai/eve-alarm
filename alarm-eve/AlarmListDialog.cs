@@ -14,7 +14,6 @@ using Qiniu.RS;
 using Qiniu.RPC;
 using System.Net;
 using System.IO;
-
 namespace alarm_eve
 {
     public partial class AlarmListDialog : Form
@@ -32,7 +31,7 @@ namespace alarm_eve
             {
                 bool bAutoStart = false;
                 string starupPath = Application.LocalUserAppDataPath;
-                RegistryKey loca = Registry.LocalMachine;
+                RegistryKey loca = Registry.CurrentUser;
                 RegistryKey run = loca.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
                 string RegValue = run.GetValue("alarm-eve").ToString();
                 if (RegValue == starupPath)
@@ -143,6 +142,7 @@ namespace alarm_eve
             InitCheckBoxStatus();
             InitListViewData();
             InitShowItemCount();
+            InitAutoStart();
         }
 
         private void CloseBtn_Click(object sender, EventArgs e)
@@ -297,7 +297,5 @@ namespace alarm_eve
             if (!ret.OK) MessageBox.Show(ret.Response);
             return ret.OK;
         }
-
-
     }
 }

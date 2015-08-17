@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AlarmListDialog));
             this.AlramList = new System.Windows.Forms.ListView();
             this.EveAccount = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Remain = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -45,6 +46,7 @@
             this.ShowItemCount = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.SyncBtn = new System.Windows.Forms.Button();
+            this.LockBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // AlramList
@@ -56,7 +58,7 @@
             this.AlramList.FullRowSelect = true;
             this.AlramList.Location = new System.Drawing.Point(0, 0);
             this.AlramList.Name = "AlramList";
-            this.AlramList.Size = new System.Drawing.Size(492, 186);
+            this.AlramList.Size = new System.Drawing.Size(634, 252);
             this.AlramList.TabIndex = 0;
             this.AlramList.UseCompatibleStateImageBehavior = false;
             this.AlramList.View = System.Windows.Forms.View.Details;
@@ -70,19 +72,19 @@
             // 
             this.Remain.Text = "到期时间";
             this.Remain.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.Remain.Width = 385;
+            this.Remain.Width = 531;
             // 
             // RoleEdit
             // 
             this.RoleEdit.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.RoleEdit.Location = new System.Drawing.Point(114, 194);
+            this.RoleEdit.Location = new System.Drawing.Point(115, 268);
             this.RoleEdit.Name = "RoleEdit";
             this.RoleEdit.Size = new System.Drawing.Size(228, 33);
             this.RoleEdit.TabIndex = 1;
             // 
             // AddAlramBtn
             // 
-            this.AddAlramBtn.Location = new System.Drawing.Point(372, 263);
+            this.AddAlramBtn.Location = new System.Drawing.Point(471, 311);
             this.AddAlramBtn.Name = "AddAlramBtn";
             this.AddAlramBtn.Size = new System.Drawing.Size(108, 26);
             this.AddAlramBtn.TabIndex = 2;
@@ -94,7 +96,7 @@
             // 
             this.EveAccountEdit.AutoSize = true;
             this.EveAccountEdit.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.EveAccountEdit.Location = new System.Drawing.Point(19, 197);
+            this.EveAccountEdit.Location = new System.Drawing.Point(20, 271);
             this.EveAccountEdit.Name = "EveAccountEdit";
             this.EveAccountEdit.Size = new System.Drawing.Size(50, 25);
             this.EveAccountEdit.TabIndex = 3;
@@ -104,7 +106,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(19, 234);
+            this.label1.Location = new System.Drawing.Point(20, 308);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 25);
             this.label1.TabIndex = 3;
@@ -113,14 +115,14 @@
             // MaturityDate
             // 
             this.MaturityDate.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.MaturityDate.Location = new System.Drawing.Point(113, 234);
+            this.MaturityDate.Location = new System.Drawing.Point(114, 308);
             this.MaturityDate.Name = "MaturityDate";
             this.MaturityDate.Size = new System.Drawing.Size(229, 33);
             this.MaturityDate.TabIndex = 4;
             // 
             // Delete
             // 
-            this.Delete.Location = new System.Drawing.Point(372, 295);
+            this.Delete.Location = new System.Drawing.Point(357, 311);
             this.Delete.Name = "Delete";
             this.Delete.Size = new System.Drawing.Size(108, 26);
             this.Delete.TabIndex = 2;
@@ -130,7 +132,7 @@
             // 
             // AutoStartBtn
             // 
-            this.AutoStartBtn.Location = new System.Drawing.Point(372, 231);
+            this.AutoStartBtn.Location = new System.Drawing.Point(357, 348);
             this.AutoStartBtn.Name = "AutoStartBtn";
             this.AutoStartBtn.Size = new System.Drawing.Size(108, 26);
             this.AutoStartBtn.TabIndex = 2;
@@ -143,7 +145,7 @@
             this.ShowAccount.AutoSize = true;
             this.ShowAccount.Checked = true;
             this.ShowAccount.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ShowAccount.Location = new System.Drawing.Point(41, 305);
+            this.ShowAccount.Location = new System.Drawing.Point(42, 379);
             this.ShowAccount.Name = "ShowAccount";
             this.ShowAccount.Size = new System.Drawing.Size(72, 16);
             this.ShowAccount.TabIndex = 5;
@@ -156,7 +158,7 @@
             this.ShowMaturityDate.AutoSize = true;
             this.ShowMaturityDate.Checked = true;
             this.ShowMaturityDate.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ShowMaturityDate.Location = new System.Drawing.Point(119, 305);
+            this.ShowMaturityDate.Location = new System.Drawing.Point(120, 379);
             this.ShowMaturityDate.Name = "ShowMaturityDate";
             this.ShowMaturityDate.Size = new System.Drawing.Size(120, 16);
             this.ShowMaturityDate.TabIndex = 5;
@@ -169,7 +171,7 @@
             this.ShowTimer.AutoSize = true;
             this.ShowTimer.Checked = true;
             this.ShowTimer.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ShowTimer.Location = new System.Drawing.Point(245, 305);
+            this.ShowTimer.Location = new System.Drawing.Point(246, 379);
             this.ShowTimer.Name = "ShowTimer";
             this.ShowTimer.Size = new System.Drawing.Size(84, 16);
             this.ShowTimer.TabIndex = 5;
@@ -180,7 +182,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(44, 282);
+            this.label2.Location = new System.Drawing.Point(45, 356);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(65, 12);
             this.label2.TabIndex = 6;
@@ -196,7 +198,7 @@
             "3",
             "4",
             "5"});
-            this.ShowItemCount.Location = new System.Drawing.Point(118, 278);
+            this.ShowItemCount.Location = new System.Drawing.Point(119, 352);
             this.ShowItemCount.Name = "ShowItemCount";
             this.ShowItemCount.Size = new System.Drawing.Size(59, 20);
             this.ShowItemCount.TabIndex = 7;
@@ -206,7 +208,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(196, 282);
+            this.label3.Location = new System.Drawing.Point(197, 356);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 12);
             this.label3.TabIndex = 8;
@@ -214,7 +216,7 @@
             // 
             // SyncBtn
             // 
-            this.SyncBtn.Location = new System.Drawing.Point(372, 199);
+            this.SyncBtn.Location = new System.Drawing.Point(471, 274);
             this.SyncBtn.Name = "SyncBtn";
             this.SyncBtn.Size = new System.Drawing.Size(108, 26);
             this.SyncBtn.TabIndex = 2;
@@ -226,7 +228,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(492, 334);
+            this.ClientSize = new System.Drawing.Size(634, 416);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ShowItemCount);
             this.Controls.Add(this.label2);
@@ -237,13 +239,14 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.EveAccountEdit);
             this.Controls.Add(this.Delete);
+            this.Controls.Add(this.LockBtn);
             this.Controls.Add(this.SyncBtn);
             this.Controls.Add(this.AutoStartBtn);
             this.Controls.Add(this.AddAlramBtn);
             this.Controls.Add(this.RoleEdit);
             this.Controls.Add(this.AlramList);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(508, 372);
             this.MinimumSize = new System.Drawing.Size(508, 372);
             this.Name = "AlarmListDialog";
             this.ShowIcon = false;
@@ -274,5 +277,6 @@
         private System.Windows.Forms.ComboBox ShowItemCount;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button SyncBtn;
+        private System.Windows.Forms.Button LockBtn;
     }
 }

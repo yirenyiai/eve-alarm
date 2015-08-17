@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using GDIPlus;
 using Ini;
 using System.Collections;
+using System.Runtime.InteropServices;
+
 
 namespace alarm_eve
 {
@@ -23,6 +25,96 @@ namespace alarm_eve
         System.Timers.Timer m_TimerFreshSkillsStatus = new System.Timers.Timer(1000);
         ArrayList m_SkillsDTArray = new ArrayList();
         ArrayList m_ControlSetArray = new ArrayList();
+
+        #region 热键模块
+        private const uint WS_EX_LAYERED = 0x80000;
+        private const int WS_EX_TRANSPARENT = 0x20;
+        private const int GWL_EXSTYLE = (-20);
+        private string Var_genre = "";//记录当前操作的类型 
+
+        [DllImport("user32.dll")]
+        private static extern int RegisterHotKey(IntPtr hwnd, int id, int fsModifiers, int vk);
+        [DllImport("user32.dll")]
+        private static extern int UnregisterHotKey(IntPtr hwnd, int id);
+        int Space = 32; //热键ID 
+        private const int WM_HOTKEY = 0x312; //窗口消息-热键 
+        private const int WM_CREATE = 0x1; //窗口消息-创建 
+        private const int WM_DESTROY = 0x2; //窗口消息-销毁 
+        private const int MOD_ALT = 0x1; //ALT 
+        private const int MOD_CONTROL = 0x2; //CTRL 
+        private const int MOD_SHIFT = 0x4; //SHIFT 
+        private const int VK_SPACE = 0x20; //SPACE 
+
+        /// <summary> 
+		/// 注册热键 
+		/// </summary> 
+		/// <param name="hwnd">窗口句柄</param> 
+		/// <param name="hotKey_id">热键ID</param> 
+		/// <param name="fsModifiers">组合键</param> 
+		/// <param name="vk">热键</param> 
+		private void RegKey(IntPtr hwnd, int hotKey_id, int fsModifiers, int vk)
+		{
+		     bool result;
+		     if (RegisterHotKey(hwnd,hotKey_id,fsModifiers,vk) == 0)
+		     {
+		         result = false;
+		     }
+		     else
+		     {
+		         result = true;
+		     }
+		     if (!result)
+		     {
+		         MessageBox.Show("注册热键失败！");
+		     }
+		}
+		
+		/// <summary> 
+		/// 注销热键 
+		/// </summary> 
+		/// <param name="hwnd">窗口句柄</param> 
+		/// <param name="hotKey_id">热键ID</param> 
+		private void UnRegKey(IntPtr hwnd, int hotKey_id)
+		{
+		     UnregisterHotKey(hwnd,hotKey_id);
+		}
+        #endregion
+
+        #region 使窗口有鼠标穿透功能
+        /// <summary> 
+        /// 在窗口结构中为指定的窗口设置信息 
+        /// </summary> 
+        /// <param name="hwnd">欲为其取得信息的窗口的句柄</param> 
+        /// <param name="nIndex">欲取回的信息</param> 
+        /// <param name="dwNewLong">由nIndex指定的窗口信息的新值</param> 
+        /// <returns></returns> 
+        [DllImport("user32", EntryPoint = "SetWindowLong")]
+        private static extern uint SetWindowLong(IntPtr hwnd, int nIndex, uint dwNewLong);
+
+        /// <summary> 
+        /// 从指定窗口的结构中取得信息 
+        /// </summary> 
+        /// <param name="hwnd">欲为其获取信息的窗口的句柄</param> 
+        /// <param name="nIndex">欲取回的信息</param> 
+        /// <returns></returns> 
+        [DllImport("user32", EntryPoint = "GetWindowLong")]
+        private static extern uint GetWindowLong(IntPtr hwnd, int nIndex);
+
+        /// <summary> 
+        /// 使窗口 拥有/取消 鼠标穿透功能
+        /// </summary> 
+        private void Penetrate()
+        {
+            uint intExTemp = GetWindowLong(this.Handle, GWL_EXSTYLE);
+            if (intExTemp == (WS_EX_TRANSPARENT | WS_EX_LAYERED))
+            {
+                uint oldGWLEx = SetWindowLong(this.Handle, GWL_EXSTYLE, WS_EX_LAYERED);
+            }
+            else {
+                uint oldGWLEx = SetWindowLong(this.Handle, GWL_EXSTYLE, WS_EX_TRANSPARENT | WS_EX_LAYERED);
+            }
+        }
+        #endregion
 
         public AlarmFrame()
         {
@@ -344,6 +436,37 @@ namespace alarm_eve
         {
             this.Show();
             this.Activate();
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            base.WndProc(ref m);
+            switch(m.Msg)
+            {
+            case WM_HOTKEY: //窗口消息-热键 
+                switch(m.WParam.ToInt32())
+                {
+                    case 32: //热键ID 
+                        Penetrate();
+                    break;
+                    default:
+                    break;
+                }
+                break;
+            case WM_CREATE: //窗口消息-创建 
+                RegKey(Handle, Space, MOD_ALT | MOD_CONTROL , VK_SPACE); //注册热键 
+                break;
+            case WM_DESTROY: //窗口消息-销毁 
+                UnRegKey(Handle,Space); //销毁热键 
+                break;
+            default:
+                break;
+           }
+
+        }
+
+        private void AlarmFrame_KeyDown(object sender, KeyEventArgs e)
+        {
         }
     }
 
