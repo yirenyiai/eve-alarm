@@ -25,7 +25,24 @@ namespace alarm_eve
         System.Timers.Timer m_TimerFreshSkillsStatus = new System.Timers.Timer(1000);
         ArrayList m_SkillsDTArray = new ArrayList();
         ArrayList m_ControlSetArray = new ArrayList();
-        public Point m_ptInForm = new Point(); 
+        public Point m_ptInForm = new Point();
+
+        #region 设置父窗口模块
+        [DllImport("user32.dll", EntryPoint = "SetParent")]
+        public static extern int SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
+        [DllImport("user32.dll", EntryPoint = "GetDesktopWindow", CharSet = CharSet.Auto, SetLastError = true)]
+        private static extern IntPtr GetDesktopWindow();
+        [DllImport("user32.dll", EntryPoint = "SetWindowPos")]
+        public static extern IntPtr SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int Y, int cx, int cy, int wFlags);
+
+        private const int SWP_NOSIZE = 1;
+        private const int SWP_NOMOVE = 2;
+        private IntPtr HWND_BOTTOM = (IntPtr)1;
+        private void SetParent()
+        {
+            SetWindowPos(this.Handle, HWND_BOTTOM, 0, 0, 0, 0, SWP_NOSIZE | SWP_NOMOVE);
+        }
+        #endregion
 
         #region 热键模块
         private const uint WS_EX_LAYERED = 0x80000;
@@ -111,15 +128,9 @@ namespace alarm_eve
             if (intExTemp == (WS_EX_TRANSPARENT | WS_EX_LAYERED))
             {
                 uint oldGWLEx = SetWindowLong(this.Handle, GWL_EXSTYLE, WS_EX_LAYERED);
-                AddBtn.Visible = true;
-                MinBtn.Visible = true;
-                CloseBtn.Visible = true;
             }
             else {
                 uint oldGWLEx = SetWindowLong(this.Handle, GWL_EXSTYLE, WS_EX_TRANSPARENT | WS_EX_LAYERED);
-                AddBtn.Visible = false;
-                MinBtn.Visible = false;
-                CloseBtn.Visible = false;
             }
         }
         /// <summary> 
@@ -303,11 +314,7 @@ namespace alarm_eve
                             TrayIcon.BalloonTipText = this.RoleName_1.Text + " 一项任务已经到达预设的时间";
                             //消失时间
                             TrayIcon.ShowBalloonTip(2000);
-                            // 显示在任务栏
-                            this.ShowInTaskbar = true;
                         }
-                        IntPtr hWnd = this.Handle;
-                        Win32.FlashWindow(hWnd, true);
                     }
                     else
                     {
@@ -319,9 +326,7 @@ namespace alarm_eve
                         else 
                             Controls.m_SkillsStatue.ForeColor = Color.GreenYellow;
 
-                        this.ShowInTaskbar = false;
-                        this.TrayIcon.Text = string.Format("{0}\n{1}\n{2}", Controls.m_RoleName.Text, Controls.m_MaturityDate.Text, Controls.m_SkillsStatue.Text);
-                        this.TrayIcon.Text += "\n";
+                        this.TrayIcon.Text += string.Format("计划{0}:{1}\n", Count, Controls.m_RoleName.Text);
                     }
                     Count += 1;
                 }
@@ -425,19 +430,7 @@ namespace alarm_eve
             this.ShowInTaskbar = false;
             ShowEveAccount();
             InitShowControl();
-        }
-
-        private void AddBtn_Click(object sender, EventArgs e)
-        {
-            m_AlarmListDialog = new AlarmListDialog();
-            m_AlarmListDialog.ShowDialog();
-            ShowEveAccount();
-            InitShowControl();
-        }
-
-        private void CloseBtn_Click(object sender, EventArgs e)
-        {
-            Close();
+            SetParent();
         }
 
         private void ExitMenuItem_Click(object sender, EventArgs e)
@@ -445,7 +438,15 @@ namespace alarm_eve
             Close();
         }
 
-        private void MinBtn_Click(object sender, EventArgs e)
+        private void SettingMenuItem_Click(object sender, EventArgs e)
+        {
+            m_AlarmListDialog = new AlarmListDialog();
+            m_AlarmListDialog.ShowDialog();
+            ShowEveAccount();
+            InitShowControl();
+        }
+
+        private void HideMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
         }
@@ -505,8 +506,6 @@ namespace alarm_eve
            }
 
         }
-
-
     }
 
     public class ControlSet

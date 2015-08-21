@@ -37,6 +37,8 @@
             this.TrayImageList = new System.Windows.Forms.ImageList(this.components);
             this.TrayIconContentMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.ExitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.HideMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.SettingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RoleName_2 = new System.Windows.Forms.Label();
             this.MaturityDate_2 = new System.Windows.Forms.Label();
             this.SkillsStatue_2 = new System.Windows.Forms.Label();
@@ -49,13 +51,7 @@
             this.RoleName_5 = new System.Windows.Forms.Label();
             this.MaturityDate_5 = new System.Windows.Forms.Label();
             this.SkillsStatue_5 = new System.Windows.Forms.Label();
-            this.MinBtn = new System.Windows.Forms.PictureBox();
-            this.CloseBtn = new System.Windows.Forms.PictureBox();
-            this.AddBtn = new System.Windows.Forms.PictureBox();
             this.TrayIconContentMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.MinBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AddBtn)).BeginInit();
             this.SuspendLayout();
             // 
             // RoleName_1
@@ -117,12 +113,14 @@
             // TrayIconContentMenu
             // 
             this.TrayIconContentMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ExitMenuItem});
+            this.ExitMenuItem,
+            this.HideMenuItem,
+            this.SettingMenuItem});
             this.TrayIconContentMenu.Name = "TrayIconContentMenu";
             this.TrayIconContentMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.TrayIconContentMenu.ShowImageMargin = false;
             this.TrayIconContentMenu.ShowItemToolTips = false;
-            this.TrayIconContentMenu.Size = new System.Drawing.Size(76, 26);
+            this.TrayIconContentMenu.Size = new System.Drawing.Size(76, 70);
             // 
             // ExitMenuItem
             // 
@@ -130,6 +128,20 @@
             this.ExitMenuItem.Size = new System.Drawing.Size(75, 22);
             this.ExitMenuItem.Text = "退出";
             this.ExitMenuItem.Click += new System.EventHandler(this.ExitMenuItem_Click);
+            // 
+            // HideMenuItem
+            // 
+            this.HideMenuItem.Name = "HideMenuItem";
+            this.HideMenuItem.Size = new System.Drawing.Size(75, 22);
+            this.HideMenuItem.Text = "隐藏";
+            this.HideMenuItem.Click += new System.EventHandler(this.HideMenuItem_Click);
+            // 
+            // SettingMenuItem
+            // 
+            this.SettingMenuItem.Name = "SettingMenuItem";
+            this.SettingMenuItem.Size = new System.Drawing.Size(75, 22);
+            this.SettingMenuItem.Text = "设置";
+            this.SettingMenuItem.Click += new System.EventHandler(this.SettingMenuItem_Click);
             // 
             // RoleName_2
             // 
@@ -299,55 +311,12 @@
             this.SkillsStatue_5.Text = "倒计时";
             this.SkillsStatue_5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
-            // MinBtn
-            // 
-            this.MinBtn.Image = global::alarm_eve.Properties.Resources.Min;
-            this.MinBtn.Location = new System.Drawing.Point(295, 4);
-            this.MinBtn.Name = "MinBtn";
-            this.MinBtn.Size = new System.Drawing.Size(22, 13);
-            this.MinBtn.TabIndex = 3;
-            this.MinBtn.TabStop = false;
-            this.MinBtn.Click += new System.EventHandler(this.MinBtn_Click);
-            this.MinBtn.MouseLeave += new System.EventHandler(this.ImageBtn_Leave);
-            this.MinBtn.MouseHover += new System.EventHandler(this.ImageBtn_Hover);
-            // 
-            // CloseBtn
-            // 
-            this.CloseBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(44)))));
-            this.CloseBtn.Image = global::alarm_eve.Properties.Resources.Close;
-            this.CloseBtn.Location = new System.Drawing.Point(340, 1);
-            this.CloseBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.CloseBtn.Name = "CloseBtn";
-            this.CloseBtn.Size = new System.Drawing.Size(14, 14);
-            this.CloseBtn.TabIndex = 2;
-            this.CloseBtn.TabStop = false;
-            this.CloseBtn.Click += new System.EventHandler(this.CloseBtn_Click);
-            this.CloseBtn.MouseLeave += new System.EventHandler(this.ImageBtn_Leave);
-            this.CloseBtn.MouseHover += new System.EventHandler(this.ImageBtn_Hover);
-            // 
-            // AddBtn
-            // 
-            this.AddBtn.BackColor = System.Drawing.Color.Transparent;
-            this.AddBtn.Image = global::alarm_eve.Properties.Resources.add1;
-            this.AddBtn.Location = new System.Drawing.Point(320, 0);
-            this.AddBtn.Margin = new System.Windows.Forms.Padding(0);
-            this.AddBtn.Name = "AddBtn";
-            this.AddBtn.Size = new System.Drawing.Size(20, 17);
-            this.AddBtn.TabIndex = 2;
-            this.AddBtn.TabStop = false;
-            this.AddBtn.Click += new System.EventHandler(this.AddBtn_Click);
-            this.AddBtn.MouseLeave += new System.EventHandler(this.ImageBtn_Leave);
-            this.AddBtn.MouseHover += new System.EventHandler(this.ImageBtn_Hover);
-            // 
             // AlarmFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(37)))), ((int)(((byte)(41)))), ((int)(((byte)(44)))));
             this.ClientSize = new System.Drawing.Size(362, 458);
-            this.Controls.Add(this.MinBtn);
-            this.Controls.Add(this.CloseBtn);
-            this.Controls.Add(this.AddBtn);
             this.Controls.Add(this.SkillsStatue_5);
             this.Controls.Add(this.MaturityDate_5);
             this.Controls.Add(this.SkillsStatue_4);
@@ -367,6 +336,7 @@
             this.ForeColor = System.Drawing.Color.Transparent;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimizeBox = false;
             this.Name = "AlarmFrame";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "计时器";
@@ -374,9 +344,6 @@
             this.Load += new System.EventHandler(this.AlarmFrame_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
             this.TrayIconContentMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.MinBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.CloseBtn)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.AddBtn)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -389,9 +356,6 @@
         private System.Windows.Forms.Label SkillsStatue_1;
         private System.Windows.Forms.NotifyIcon TrayIcon;
         private System.Windows.Forms.ImageList TrayImageList;
-        private System.Windows.Forms.PictureBox AddBtn;
-        private System.Windows.Forms.PictureBox CloseBtn;
-        private System.Windows.Forms.PictureBox MinBtn;
         private System.Windows.Forms.ContextMenuStrip TrayIconContentMenu;
         private System.Windows.Forms.ToolStripMenuItem ExitMenuItem;
         private System.Windows.Forms.Label RoleName_2;
@@ -406,6 +370,8 @@
         private System.Windows.Forms.Label RoleName_5;
         private System.Windows.Forms.Label MaturityDate_5;
         private System.Windows.Forms.Label SkillsStatue_5;
+        private System.Windows.Forms.ToolStripMenuItem HideMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem SettingMenuItem;
     }
 }
 
