@@ -39,6 +39,7 @@
             this.ExitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.HideMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DockMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RoleName_2 = new System.Windows.Forms.Label();
             this.MaturityDate_2 = new System.Windows.Forms.Label();
             this.SkillsStatue_2 = new System.Windows.Forms.Label();
@@ -113,35 +114,43 @@
             // TrayIconContentMenu
             // 
             this.TrayIconContentMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ExitMenuItem,
+            this.SettingMenuItem,
+            this.DockMenuItem,
             this.HideMenuItem,
-            this.SettingMenuItem});
+            this.ExitMenuItem});
             this.TrayIconContentMenu.Name = "TrayIconContentMenu";
             this.TrayIconContentMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.TrayIconContentMenu.ShowImageMargin = false;
             this.TrayIconContentMenu.ShowItemToolTips = false;
-            this.TrayIconContentMenu.Size = new System.Drawing.Size(76, 70);
+            this.TrayIconContentMenu.Size = new System.Drawing.Size(128, 114);
             // 
             // ExitMenuItem
             // 
             this.ExitMenuItem.Name = "ExitMenuItem";
-            this.ExitMenuItem.Size = new System.Drawing.Size(75, 22);
+            this.ExitMenuItem.Size = new System.Drawing.Size(127, 22);
             this.ExitMenuItem.Text = "退出";
             this.ExitMenuItem.Click += new System.EventHandler(this.ExitMenuItem_Click);
             // 
             // HideMenuItem
             // 
             this.HideMenuItem.Name = "HideMenuItem";
-            this.HideMenuItem.Size = new System.Drawing.Size(75, 22);
+            this.HideMenuItem.Size = new System.Drawing.Size(127, 22);
             this.HideMenuItem.Text = "隐藏";
             this.HideMenuItem.Click += new System.EventHandler(this.HideMenuItem_Click);
             // 
             // SettingMenuItem
             // 
             this.SettingMenuItem.Name = "SettingMenuItem";
-            this.SettingMenuItem.Size = new System.Drawing.Size(75, 22);
+            this.SettingMenuItem.Size = new System.Drawing.Size(127, 22);
             this.SettingMenuItem.Text = "设置";
             this.SettingMenuItem.Click += new System.EventHandler(this.SettingMenuItem_Click);
+            // 
+            // DockMenuItem
+            // 
+            this.DockMenuItem.Name = "DockMenuItem";
+            this.DockMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.DockMenuItem.Text = "固定";
+            this.DockMenuItem.Click += new System.EventHandler(this.DockMenuItem_Click);
             // 
             // RoleName_2
             // 
@@ -372,6 +381,7 @@
         private System.Windows.Forms.Label SkillsStatue_5;
         private System.Windows.Forms.ToolStripMenuItem HideMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SettingMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem DockMenuItem;
     }
 }
 

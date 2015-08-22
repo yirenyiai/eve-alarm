@@ -125,7 +125,8 @@ namespace alarm_eve
         private void Penetrate()
         {
             uint intExTemp = GetWindowLong(this.Handle, GWL_EXSTYLE);
-            if (intExTemp == (WS_EX_TRANSPARENT | WS_EX_LAYERED))
+            uint StyleCheck = intExTemp & WS_EX_TRANSPARENT;
+            if (StyleCheck == WS_EX_TRANSPARENT)
             {
                 uint oldGWLEx = SetWindowLong(this.Handle, GWL_EXSTYLE, WS_EX_LAYERED);
             }
@@ -449,6 +450,12 @@ namespace alarm_eve
         private void HideMenuItem_Click(object sender, EventArgs e)
         {
             Hide();
+        }
+
+        private void DockMenuItem_Click(object sender, EventArgs e)
+        {
+            LowerOpacity();
+            Penetrate();
         }
 
         private void AlarmFrame_FormClosing(object sender, FormClosingEventArgs e)
