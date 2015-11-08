@@ -389,6 +389,13 @@ namespace alarm_eve
 
         private void InitShowControl()
         {
+            string iXPos = m_Ini.IniReadValue("eve-configure", "XPos");
+            string iYPos = m_Ini.IniReadValue("eve-configure", "YPos");
+            if (string.IsNullOrWhiteSpace(iXPos) || string.IsNullOrWhiteSpace(iYPos))
+                this.CenterToScreen();
+            else
+                this.Location = new Point(Convert.ToInt32(iXPos), Convert.ToInt32(iYPos)); ;
+
             string bShowTimer = m_Ini.IniReadValue("eve-configure", "ShowTimer");
             string bShowMaturityDate = m_Ini.IniReadValue("eve-configure", "ShowMaturityDate");
             string bShowAccount = m_Ini.IniReadValue("eve-configure", "ShowAccount");
@@ -461,6 +468,9 @@ namespace alarm_eve
         private void AlarmFrame_FormClosing(object sender, FormClosingEventArgs e)
         {
             m_TimerFreshSkillsStatus.Close();
+
+            m_Ini.IniWriteValue("eve-configure", "XPos", this.Location.X.ToString());
+            m_Ini.IniWriteValue("eve-configure", "YPos", this.Location.Y.ToString());
         }
 
         private void ImageBtn_Hover(object sender, EventArgs e)
