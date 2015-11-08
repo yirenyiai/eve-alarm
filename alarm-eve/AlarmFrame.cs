@@ -64,6 +64,13 @@ namespace alarm_eve
         private const int VK_OEM_PLUS = 0xBB;
         private const int VK_OEM_MINUS = 0xBD;
 
+        private const int WM_SYSCOMMAND = 0x112;
+
+        private const int SC_CLOSE = 0xf060;//关闭  
+        private const int SC_MINSIZE = 0xf020;//最大化  
+        private const int SC_MAXISIZE = 0xf030;//最小化  
+        private const int SC_NORMAL = 0xf120;//还原  
+
         /// <summary> 
 		/// 注册热键 
 		/// </summary> 
@@ -126,21 +133,23 @@ namespace alarm_eve
         {
             uint intExTemp = GetWindowLong(this.Handle, GWL_EXSTYLE);
             uint StyleCheck = intExTemp & WS_EX_TRANSPARENT;
-            if (StyleCheck == WS_EX_TRANSPARENT)
-            {
-                uint oldGWLEx = SetWindowLong(this.Handle, GWL_EXSTYLE, WS_EX_LAYERED);
-            }
-            else {
-                uint oldGWLEx = SetWindowLong(this.Handle, GWL_EXSTYLE, WS_EX_TRANSPARENT | WS_EX_LAYERED);
-            }
+            uint oldGWLEx = SetWindowLong(this.Handle, GWL_EXSTYLE, WS_EX_TRANSPARENT | WS_EX_LAYERED);
         }
+
+        private void UnPenetrate()
+        {
+            uint intExTemp = GetWindowLong(this.Handle, GWL_EXSTYLE);
+            uint StyleCheck = intExTemp & WS_EX_TRANSPARENT;
+            uint oldGWLEx = SetWindowLong(this.Handle, GWL_EXSTYLE, WS_EX_LAYERED);
+        }
+
         /// <summary> 
         /// 增大窗口的透明度
         /// </summary> 
         /// 
         void IncreaseOpacity()
         {
-            this.TransparencyKey = this.ForeColor; //让窗体透明   
+            this.TransparencyKey = this.ForeColor; //显示窗体
             this.Opacity += 0.1;
         }
         /// 
@@ -389,6 +398,7 @@ namespace alarm_eve
 
         private void InitShowControl()
         {
+            // 恢复上一次的位置
             string iXPos = m_Ini.IniReadValue("eve-configure", "XPos");
             string iYPos = m_Ini.IniReadValue("eve-configure", "YPos");
             if (string.IsNullOrWhiteSpace(iXPos) || string.IsNullOrWhiteSpace(iYPos))
@@ -396,6 +406,31 @@ namespace alarm_eve
             else
                 this.Location = new Point(Convert.ToInt32(iXPos), Convert.ToInt32(iYPos)); ;
 
+            // 恢复上一次是否固定
+            string Fixed = m_Ini.IniReadValue("eve-configure", "fixed");
+            if (string.IsNullOrWhiteSpace(Fixed))
+            {
+                Fixed = "1";
+            }
+
+            float fFixed = Convert.ToInt32(Fixed);
+
+            if (fFixed == 0)
+            {
+                LowerOpacity();
+                Penetrate();
+                this.DockMenuItem.Text = "取消固定";
+            }
+            else
+            {
+                // 增加
+                IncreaseOpacity();
+                UnPenetrate();
+                this.DockMenuItem.Text = "固定";
+            }
+
+
+            // 恢复上一次的显示状态
             string bShowTimer = m_Ini.IniReadValue("eve-configure", "ShowTimer");
             string bShowMaturityDate = m_Ini.IniReadValue("eve-configure", "ShowMaturityDate");
             string bShowAccount = m_Ini.IniReadValue("eve-configure", "ShowAccount");
@@ -461,8 +496,30 @@ namespace alarm_eve
 
         private void DockMenuItem_Click(object sender, EventArgs e)
         {
-            LowerOpacity();
-            Penetrate();
+            // 记录是否固定
+            string Fixed = m_Ini.IniReadValue("eve-configure", "fixed");
+            if (string.IsNullOrWhiteSpace(Fixed))
+            {
+                Fixed = "1";
+            }
+
+            int fFixed = Convert.ToInt32(Fixed);
+
+            if (fFixed == 1)
+            {
+                LowerOpacity();
+                Penetrate();
+                m_Ini.IniWriteValue("eve-configure", "fixed", "0");
+                this.DockMenuItem.Text = "取消固定";
+            }
+            else {
+                // 增加
+                IncreaseOpacity();
+                UnPenetrate();
+                m_Ini.IniWriteValue("eve-configure", "fixed", "1");
+                this.DockMenuItem.Text = "固定";
+
+            }
         }
 
         private void AlarmFrame_FormClosing(object sender, FormClosingEventArgs e)
@@ -491,37 +548,17 @@ namespace alarm_eve
 
         protected override void WndProc(ref Message m)
         {
-            base.WndProc(ref m);
             switch(m.Msg)
             {
-            case WM_HOTKEY: //窗口消息-热键 
-                switch(m.WParam.ToInt32())
-                {
-                    case VK_SPACE: //热键ID 
-                        Penetrate();
-                        break;
-                    case VK_OEM_PLUS:
-                        IncreaseOpacity();
-                        break;
-                    case VK_OEM_MINUS:
-                        LowerOpacity();
-                        break;
-                    default:
-                    break;
-                }
-                break;
             case WM_CREATE: //窗口消息-创建 
-                RegKey(Handle, Space, MOD_ALT | MOD_CONTROL , VK_SPACE, "注册快捷键失败： 无法使用窗口固定功能"); //注册热键---鼠标穿透
-                RegKey(Handle, VK_OEM_PLUS, MOD_CONTROL , VK_OEM_PLUS, "注册快捷键失败： 无法增加透明度"); //注册热键---增加透明度
-                RegKey(Handle, VK_OEM_MINUS, MOD_CONTROL , VK_OEM_MINUS, "注册快捷键失败： 无法降低透明度"); //注册热键---降低透明度
                 break;
             case WM_DESTROY: //窗口消息-销毁 
-                UnRegKey(Handle,Space); //销毁热键 
                 break;
             default:
                 break;
            }
 
+            base.WndProc(ref m);
         }
     }
 

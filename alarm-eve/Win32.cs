@@ -10,6 +10,8 @@ namespace GDIPlus
     {
         #region Window Const
 
+
+
         public const int WM_ERASEBKGND = 0x0014;
         public const int WM_LBUTTONDOWN = 0x0201;
         public const int WM_LBUTTONUP = 0x0202;
