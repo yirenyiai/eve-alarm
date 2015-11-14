@@ -36,10 +36,10 @@
             this.TrayIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.TrayImageList = new System.Windows.Forms.ImageList(this.components);
             this.TrayIconContentMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.ExitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.HideMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SettingMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DockMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.HideMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExitMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RoleName_2 = new System.Windows.Forms.Label();
             this.MaturityDate_2 = new System.Windows.Forms.Label();
             this.SkillsStatue_2 = new System.Windows.Forms.Label();
@@ -52,6 +52,7 @@
             this.RoleName_5 = new System.Windows.Forms.Label();
             this.MaturityDate_5 = new System.Windows.Forms.Label();
             this.SkillsStatue_5 = new System.Windows.Forms.Label();
+            this.AsyncDataMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TrayIconContentMenu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,6 +116,7 @@
             // 
             this.TrayIconContentMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.SettingMenuItem,
+            this.AsyncDataMenuItem,
             this.DockMenuItem,
             this.HideMenuItem,
             this.ExitMenuItem});
@@ -122,21 +124,7 @@
             this.TrayIconContentMenu.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.TrayIconContentMenu.ShowImageMargin = false;
             this.TrayIconContentMenu.ShowItemToolTips = false;
-            this.TrayIconContentMenu.Size = new System.Drawing.Size(128, 114);
-            // 
-            // ExitMenuItem
-            // 
-            this.ExitMenuItem.Name = "ExitMenuItem";
-            this.ExitMenuItem.Size = new System.Drawing.Size(127, 22);
-            this.ExitMenuItem.Text = "退出";
-            this.ExitMenuItem.Click += new System.EventHandler(this.ExitMenuItem_Click);
-            // 
-            // HideMenuItem
-            // 
-            this.HideMenuItem.Name = "HideMenuItem";
-            this.HideMenuItem.Size = new System.Drawing.Size(127, 22);
-            this.HideMenuItem.Text = "隐藏";
-            this.HideMenuItem.Click += new System.EventHandler(this.HideMenuItem_Click);
+            this.TrayIconContentMenu.Size = new System.Drawing.Size(128, 136);
             // 
             // SettingMenuItem
             // 
@@ -151,6 +139,20 @@
             this.DockMenuItem.Size = new System.Drawing.Size(127, 22);
             this.DockMenuItem.Text = "固定";
             this.DockMenuItem.Click += new System.EventHandler(this.DockMenuItem_Click);
+            // 
+            // HideMenuItem
+            // 
+            this.HideMenuItem.Name = "HideMenuItem";
+            this.HideMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.HideMenuItem.Text = "隐藏";
+            this.HideMenuItem.Click += new System.EventHandler(this.HideMenuItem_Click);
+            // 
+            // ExitMenuItem
+            // 
+            this.ExitMenuItem.Name = "ExitMenuItem";
+            this.ExitMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.ExitMenuItem.Text = "退出";
+            this.ExitMenuItem.Click += new System.EventHandler(this.ExitMenuItem_Click);
             // 
             // RoleName_2
             // 
@@ -320,6 +322,13 @@
             this.SkillsStatue_5.Text = "倒计时";
             this.SkillsStatue_5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
+            // AsyncDataMenuItem
+            // 
+            this.AsyncDataMenuItem.Name = "AsyncDataMenuItem";
+            this.AsyncDataMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.AsyncDataMenuItem.Text = "同步数据";
+            this.AsyncDataMenuItem.Click += new System.EventHandler(this.AsyncDataMenuItem_Click);
+            // 
             // AlarmFrame
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -382,6 +391,7 @@
         private System.Windows.Forms.ToolStripMenuItem HideMenuItem;
         private System.Windows.Forms.ToolStripMenuItem SettingMenuItem;
         private System.Windows.Forms.ToolStripMenuItem DockMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem AsyncDataMenuItem;
     }
 }
 

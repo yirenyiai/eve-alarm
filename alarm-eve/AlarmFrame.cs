@@ -11,7 +11,8 @@ using GDIPlus;
 using Ini;
 using System.Collections;
 using System.Runtime.InteropServices;
-
+using System.Net;
+using System.IO;
 
 namespace alarm_eve
 {
@@ -559,6 +560,17 @@ namespace alarm_eve
            }
 
             base.WndProc(ref m);
+        }
+
+        private void AsyncDataMenuItem_Click(object sender, EventArgs e)
+        {
+            string url = "http://7xjgjz.com1.z0.glb.clouddn.com/eve-account.ini";
+            string LocalPath = Application.StartupPath + @"\eve-account.ini";
+            WebClient myWebClient = new WebClient();
+            myWebClient.DownloadFile(url, LocalPath);
+
+            ShowEveAccount();
+            InitShowControl();
         }
     }
 
