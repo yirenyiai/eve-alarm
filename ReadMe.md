@@ -5,6 +5,6 @@
 #### 如果你不是开发人员又想使用，你可以到[点击这里下载](http://7xjgjz.com1.z0.glb.clouddn.com/eve%E6%8A%80%E8%83%BD%E8%AE%A1%E6%97%B6%E5%99%A8.7z) 
 
 ## 编译环境
-#### VS2013 
-#### Version 12.0.40629 Update 5
+#### IDE: VS2013 
+#### IDE Version 12.0.40629 Update 5
 #### .Net 4.0
