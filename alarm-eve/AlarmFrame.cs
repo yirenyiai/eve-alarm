@@ -484,6 +484,9 @@ namespace alarm_eve
 
         private void SettingMenuItem_Click(object sender, EventArgs e)
         {
+            m_Ini.IniWriteValue("eve-configure", "XPos", this.Location.X.ToString());
+            m_Ini.IniWriteValue("eve-configure", "YPos", this.Location.Y.ToString());
+
             m_AlarmListDialog = new AlarmListDialog();
             m_AlarmListDialog.ShowDialog();
             ShowEveAccount();
