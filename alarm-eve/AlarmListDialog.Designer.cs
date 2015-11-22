@@ -250,6 +250,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "帐号技能列表";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.AlarmListDialog_FormClosed);
             this.Load += new System.EventHandler(this.AlarmListDialog_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
