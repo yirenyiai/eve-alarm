@@ -298,5 +298,14 @@ namespace alarm_eve
             if (!ret.OK) MessageBox.Show(ret.Response);
             return ret.OK;
         }
+
+        private void AlarmListDialog_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            int ItemCount = Convert.ToInt32(ShowItemCount.Text);
+            int ListCount = AlramList.Items.Count;
+
+            ItemCount = ListCount;
+            m_Ini.IniWriteValue("eve-configure", "ShowItemCount", ItemCount.ToString());
+        }
     }
 }
