@@ -286,7 +286,8 @@ namespace alarm_eve
             PutExtra extra = new PutExtra();
             IOClient client = new IOClient();
             PutRet ret = client.PutFile(upToken, key, fname, extra);
-            if (!ret.OK) MessageBox.Show(ret.Response);
+            if (!ret.OK && !string.IsNullOrWhiteSpace(ret.Response))
+                MessageBox.Show(ret.Response);
             return ret.OK;
         }
 
@@ -295,7 +296,10 @@ namespace alarm_eve
             Console.WriteLine("\n===> Delete {0}:{1}", bucket, key);
             RSClient client = new RSClient();
             CallRet ret = client.Delete(new EntryPath(bucket, key));
-            if (!ret.OK) MessageBox.Show(ret.Response);
+
+            if (!ret.OK && !string.IsNullOrWhiteSpace(ret.Response)) 
+                MessageBox.Show(ret.Response);
+
             return ret.OK;
         }
 
