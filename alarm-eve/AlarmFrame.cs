@@ -14,8 +14,14 @@ using System.Runtime.InteropServices;
 using System.Net;
 using System.IO;
 
+using System.Web;
+using System.Web.Script.Serialization; 
+using System.Threading;
+
 namespace alarm_eve
 {
+    public delegate void WeatherServiceCallBack(Weather W);
+
     public partial class AlarmFrame : Form
     {
         private const int CS_DropSHADOW = 0x20000;
@@ -26,6 +32,8 @@ namespace alarm_eve
         System.Timers.Timer m_TimerFreshSkillsStatus = new System.Timers.Timer(1000);
         ArrayList m_SkillsDTArray = new ArrayList();
         ArrayList m_ControlSetArray = new ArrayList();
+        private BKServiceWorker m_bkServiceWorker = new BKServiceWorker();
+        private Thread m_WorkerThread;
         public Point m_ptInForm = new Point();
 
         #region 设置父窗口模块
@@ -132,16 +140,16 @@ namespace alarm_eve
         /// </summary> 
         private void Penetrate()
         {
-            uint intExTemp = GetWindowLong(this.Handle, GWL_EXSTYLE);
-            uint StyleCheck = intExTemp & WS_EX_TRANSPARENT;
-            uint oldGWLEx = SetWindowLong(this.Handle, GWL_EXSTYLE, WS_EX_TRANSPARENT | WS_EX_LAYERED);
+            //uint intExTemp = GetWindowLong(this.Handle, GWL_EXSTYLE);
+            //uint StyleCheck = intExTemp & WS_EX_TRANSPARENT;
+            //uint oldGWLEx = SetWindowLong(this.Handle, GWL_EXSTYLE, WS_EX_TRANSPARENT | WS_EX_LAYERED);
         }
 
         private void UnPenetrate()
         {
-            uint intExTemp = GetWindowLong(this.Handle, GWL_EXSTYLE);
-            uint StyleCheck = intExTemp & WS_EX_TRANSPARENT;
-            uint oldGWLEx = SetWindowLong(this.Handle, GWL_EXSTYLE, WS_EX_LAYERED);
+            //uint intExTemp = GetWindowLong(this.Handle, GWL_EXSTYLE);
+            //uint StyleCheck = intExTemp & WS_EX_TRANSPARENT;
+            //uint oldGWLEx = SetWindowLong(this.Handle, GWL_EXSTYLE, WS_EX_LAYERED);
         }
 
         /// <summary> 
@@ -221,22 +229,28 @@ namespace alarm_eve
             int ItemCount = 1;
             if (!string.IsNullOrWhiteSpace(ShowItemCount))
                 ItemCount = Convert.ToInt32(ShowItemCount);
+
             switch(ItemCount)
             {
                 case 1:
-                    this.Height = 76;
+                    this.Height = 76 + 118;
+                    this.CountdownServiceGroup.Height = 76;
                     break;
                 case 2:
-                    this.Height = 175;
+                    this.Height = 175 + 118;
+                    this.CountdownServiceGroup.Height = 175;
                     break;
                 case 3:
-                    this.Height = 270;
+                    this.Height = 270 + 118;
+                    this.CountdownServiceGroup.Height = 270;
                     break;
                 case 4:
-                    this.Height = 358;
+                    this.Height = 358 + 118;
+                    this.CountdownServiceGroup.Height = 358;
                     break;
                 case 5:
-                    this.Height = 455;
+                    this.Height = 455 + 118;
+                    this.CountdownServiceGroup.Height = 455;
                     break;
             }
 
@@ -464,17 +478,35 @@ namespace alarm_eve
             }
         }
 
+        public void InitWeatherService(Weather W)
+        {
+            WeatherCityLabel.Text = W.weatherinfo.city;
+            WeatherUpdateTimeLabel.Text = W.weatherinfo.time;
+            WeatherTempLabel.Text = W.weatherinfo.temp.ToString();
+            WeatherWDLabel.Text = W.weatherinfo.WD;
+            WeatherWSLabel.Text = W.weatherinfo.WS;
+            WeatherSDLabel.Text = W.weatherinfo.SD;
+        }
+
+        private void InitBkServiceThread()
+        {
+            m_bkServiceWorker.m_Frame = this;
+            m_bkServiceWorker.m_WeatherCallBack = InitWeatherService;
+            m_WorkerThread = new Thread(m_bkServiceWorker.DoWork);
+            m_WorkerThread.Start();
+        }
+
         private void AlarmFrame_Load(object sender, EventArgs e)
         {
             InitControlSet();
             SetFormRoundRectRgn(5);
-            //Win32.SetClassLong(this.Handle, GCL_STYLE, Win32.GetClassLong(this.Handle, GCL_STYLE) | CS_DropSHADOW);
             this.TrayIcon.Visible = true;
             this.TrayIcon.ContextMenuStrip = this.TrayIconContentMenu;
             this.ShowInTaskbar = false;
             ShowEveAccount();
             InitShowControl();
             SetParent();
+            InitBkServiceThread();
         }
 
         private void ExitMenuItem_Click(object sender, EventArgs e)
@@ -532,6 +564,8 @@ namespace alarm_eve
 
             m_Ini.IniWriteValue("eve-configure", "XPos", this.Location.X.ToString());
             m_Ini.IniWriteValue("eve-configure", "YPos", this.Location.Y.ToString());
+
+            m_WorkerThread.Abort();
         }
 
         private void ImageBtn_Hover(object sender, EventArgs e)
@@ -577,6 +611,20 @@ namespace alarm_eve
         }
     }
 
+    public class Weather
+    {
+        public Info weatherinfo;
+    }
+    public class Info
+    {
+        public string city;//城市  
+        public int temp;   //温度  
+        public string WD;  //风向  
+        public string WS;     //风力  
+        public string SD;  //相对湿度  
+        public string time;//更新时间  
+    }  
+
     public class ControlSet
     {
         public Label m_RoleName { get; set; }
@@ -601,5 +649,42 @@ namespace alarm_eve
             AccountSet t2 = (AccountSet)y;
             return DateTime.Compare(t1.m_MaturityDate, t2.m_MaturityDate);
         }
+    }
+
+
+    public class BKServiceWorker
+    {
+        // This method will be called when the thread is started.
+        public void DoWork()
+        {
+            while (true)
+            {
+                //获取天气和解析  
+                try {
+                    HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("http://www.weather.com.cn/data/sk/101280102.html");
+                    request.Timeout = 60000;
+                    request.Method = "GET";
+                    HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+                    StreamReader sr = new StreamReader(response.GetResponseStream());
+                    string jsonstr = sr.ReadLine();
+
+                    JavaScriptSerializer j = new JavaScriptSerializer();
+                    Weather weather = new Weather();
+                    weather = j.Deserialize<Weather>(jsonstr);
+
+                    m_Frame.BeginInvoke(m_WeatherCallBack, weather);
+                }
+                catch
+                {
+                }
+
+                // 5 分钟执行一次
+                Thread.Sleep(1000 * 60 * 5);
+            }
+        }
+
+        public WeatherServiceCallBack m_WeatherCallBack { get; set; }
+
+        public AlarmFrame m_Frame { get; set; }
     }
 }
