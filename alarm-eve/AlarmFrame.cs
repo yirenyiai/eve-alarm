@@ -480,12 +480,12 @@ namespace alarm_eve
 
         public void InitWeatherService(Weather W)
         {
-            WeatherCityLabel.Text = W.weatherinfo.city;
-            WeatherUpdateTimeLabel.Text = W.weatherinfo.time;
-            WeatherTempLabel.Text = W.weatherinfo.temp.ToString();
-            WeatherWDLabel.Text = W.weatherinfo.WD;
-            WeatherWSLabel.Text = W.weatherinfo.WS;
-            WeatherSDLabel.Text = W.weatherinfo.SD;
+            WeatherCityLabel.Text = W.CITYNAME;
+            WeatherUpdateTimeLabel.Text = W.TIME;
+            WeatherTempLabel.Text = W.TEMP + "℃";
+            WeatherLabel.Text = W.WEATHER;
+            WeatherWSLabel.Text = W.WS;
+            WeatherSDLabel.Text = W.SD;
         }
 
         private void InitBkServiceThread()
@@ -613,17 +613,28 @@ namespace alarm_eve
 
     public class Weather
     {
-        public Info weatherinfo;
+        public string NAMEEN{ get; set; }      // 城市拼音
+        public string CITYNAME{ get; set; }    // 城市名字
+        public string CITY{ get; set; }        // 城市编码
+        public string TEMP{ get; set; }        // 温度
+        public string TEMPF{ get; set; }       // 其他单位的温度
+        public string WD{ get; set; }          // 风向
+        public string WDE{ get; set; }         // 未知
+        public string WS{ get; set; }          // 风力等级
+        public string WSE{ get; set; }         // 风速
+        public string SD{ get; set; }          // 湿度
+        public string TIME{ get; set; }        // 时间
+        public string WEATHER{ get; set; }     // 天气
+        public string WEATHERE{ get; set; }    // 未知
+        public string WEATHERCODE{ get; set; } // 未知
+        public string QY{ get; set; }          // 未知
+        public string NJD{ get; set; }         // 未知
+        //public string sd{ get; set; }          // 湿度, 跟SD一样？难度为了兼容以前的JSON？
+        public string RAIN{ get; set; }        // 是否下雨
+        public string AQI{ get; set; }         // 未知
+        public string LIMITNUMBER{ get; set; } // 未知
+        public string DATE{ get; set; }        // 日期
     }
-    public class Info
-    {
-        public string city;//城市  
-        public int temp;   //温度  
-        public string WD;  //风向  
-        public string WS;     //风力  
-        public string SD;  //相对湿度  
-        public string time;//更新时间  
-    }  
 
     public class ControlSet
     {
@@ -661,21 +672,37 @@ namespace alarm_eve
             {
                 //获取天气和解析  
                 try {
-                    HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("http://www.weather.com.cn/data/sk/101280102.html");
+                    HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("http://d1.weather.com.cn/sk_2d/101280101.html");
                     request.Timeout = 60000;
                     request.Method = "GET";
+                    request.Referer = "http://www.weather.com.cn/weather1d/101280101.shtml";
                     HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                     StreamReader sr = new StreamReader(response.GetResponseStream());
-                    string jsonstr = sr.ReadLine();
+                    string jsonstr = "";
+                    while (!sr.EndOfStream)
+                    {
+                        jsonstr += sr.ReadLine();
+                    }
+
+                    while (jsonstr[0] != '{')
+                    {
+                        jsonstr = jsonstr.Remove(0, 1);
+                    }
+
+                    if (string.IsNullOrWhiteSpace(jsonstr))
+                        return;
+
 
                     JavaScriptSerializer j = new JavaScriptSerializer();
                     Weather weather = new Weather();
-                    weather = j.Deserialize<Weather>(jsonstr);
+                    string t = jsonstr.ToUpper();
+                    weather = j.Deserialize<Weather>(t);
 
                     m_Frame.BeginInvoke(m_WeatherCallBack, weather);
                 }
-                catch
+                catch(System.Reflection.AmbiguousMatchException e)
                 {
+                    string str = e.Message;
                 }
 
                 // 5 分钟执行一次

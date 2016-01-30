@@ -62,7 +62,7 @@
             this.WeatherServiceGroup = new System.Windows.Forms.GroupBox();
             this.WeatherSDLabel = new System.Windows.Forms.Label();
             this.WeatherWSLabel = new System.Windows.Forms.Label();
-            this.WeatherWDLabel = new System.Windows.Forms.Label();
+            this.WeatherLabel = new System.Windows.Forms.Label();
             this.WeatherTempLabel = new System.Windows.Forms.Label();
             this.WeatherUpdateTimeLabel = new System.Windows.Forms.Label();
             this.WeatherCityLabel = new System.Windows.Forms.Label();
@@ -382,9 +382,9 @@
             this.label3.ForeColor = System.Drawing.Color.Tomato;
             this.label3.Location = new System.Drawing.Point(179, 41);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 17);
+            this.label3.Size = new System.Drawing.Size(72, 17);
             this.label3.TabIndex = 0;
-            this.label3.Text = "风向";
+            this.label3.Text = "天气情况";
             this.label3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // label5
@@ -433,7 +433,7 @@
             // 
             this.WeatherServiceGroup.Controls.Add(this.WeatherSDLabel);
             this.WeatherServiceGroup.Controls.Add(this.WeatherWSLabel);
-            this.WeatherServiceGroup.Controls.Add(this.WeatherWDLabel);
+            this.WeatherServiceGroup.Controls.Add(this.WeatherLabel);
             this.WeatherServiceGroup.Controls.Add(this.WeatherTempLabel);
             this.WeatherServiceGroup.Controls.Add(this.WeatherUpdateTimeLabel);
             this.WeatherServiceGroup.Controls.Add(this.WeatherCityLabel);
@@ -479,19 +479,19 @@
             this.WeatherWSLabel.Text = "-";
             this.WeatherWSLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
-            // WeatherWDLabel
+            // WeatherLabel
             // 
-            this.WeatherWDLabel.AutoEllipsis = true;
-            this.WeatherWDLabel.AutoSize = true;
-            this.WeatherWDLabel.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.WeatherWDLabel.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WeatherWDLabel.ForeColor = System.Drawing.Color.Tomato;
-            this.WeatherWDLabel.Location = new System.Drawing.Point(265, 41);
-            this.WeatherWDLabel.Name = "WeatherWDLabel";
-            this.WeatherWDLabel.Size = new System.Drawing.Size(16, 17);
-            this.WeatherWDLabel.TabIndex = 0;
-            this.WeatherWDLabel.Text = "-";
-            this.WeatherWDLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
+            this.WeatherLabel.AutoEllipsis = true;
+            this.WeatherLabel.AutoSize = true;
+            this.WeatherLabel.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.WeatherLabel.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WeatherLabel.ForeColor = System.Drawing.Color.Tomato;
+            this.WeatherLabel.Location = new System.Drawing.Point(265, 41);
+            this.WeatherLabel.Name = "WeatherLabel";
+            this.WeatherLabel.Size = new System.Drawing.Size(16, 17);
+            this.WeatherLabel.TabIndex = 0;
+            this.WeatherLabel.Text = "-";
+            this.WeatherLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // WeatherTempLabel
             // 
@@ -623,7 +623,7 @@
         private System.Windows.Forms.GroupBox CountdownServiceGroup;
         private System.Windows.Forms.Label WeatherSDLabel;
         private System.Windows.Forms.Label WeatherWSLabel;
-        private System.Windows.Forms.Label WeatherWDLabel;
+        private System.Windows.Forms.Label WeatherLabel;
         private System.Windows.Forms.Label WeatherTempLabel;
         private System.Windows.Forms.Label WeatherUpdateTimeLabel;
         private System.Windows.Forms.Label WeatherCityLabel;
