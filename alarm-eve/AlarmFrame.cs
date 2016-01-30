@@ -491,6 +491,13 @@ namespace alarm_eve
         private void InitBkServiceThread()
         {
             m_bkServiceWorker.m_Frame = this;
+
+            string CityEn = m_Ini.IniReadValue("Weathe", "CityEn");
+            if(string.IsNullOrWhiteSpace(CityEn))
+                m_bkServiceWorker.m_CityEn = "101280101";
+            else
+                m_bkServiceWorker.m_CityEn = CityEn;
+
             m_bkServiceWorker.m_WeatherCallBack = InitWeatherService;
             m_WorkerThread = new Thread(m_bkServiceWorker.DoWork);
             m_WorkerThread.Start();
@@ -672,10 +679,11 @@ namespace alarm_eve
             {
                 //获取天气和解析  
                 try {
-                    HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create("http://d1.weather.com.cn/sk_2d/101280101.html");
+
+                    HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(string.Format("http://d1.weather.com.cn/sk_2d/{0}.html", m_CityEn));
                     request.Timeout = 60000;
                     request.Method = "GET";
-                    request.Referer = "http://www.weather.com.cn/weather1d/101280101.shtml";
+                    request.Referer = string.Format("http://www.weather.com.cn/weather1d/{0}.shtml", m_CityEn);
                     HttpWebResponse response = (HttpWebResponse)request.GetResponse();
                     StreamReader sr = new StreamReader(response.GetResponseStream());
                     string jsonstr = "";
@@ -711,6 +719,7 @@ namespace alarm_eve
         }
 
         public WeatherServiceCallBack m_WeatherCallBack { get; set; }
+        public string m_CityEn { get; set; }
 
         public AlarmFrame m_Frame { get; set; }
     }
