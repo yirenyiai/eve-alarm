@@ -248,7 +248,8 @@ namespace alarm_eve
         {
             try 
             {
-                string url = "http://7xjgjz.com1.z0.glb.clouddn.com/eve-account.ini";
+                TimeSpan ts = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0);
+                string url = string.Format("http://7xjgjz.com1.z0.glb.clouddn.com/eve-account.ini?t={0}", Convert.ToInt64(ts.TotalSeconds).ToString());
                 string LocalPath = Application.StartupPath + @"\eve-account.ini";
                 WebClient myWebClient = new WebClient();
                 myWebClient.DownloadFile(url, LocalPath);

@@ -488,16 +488,6 @@ namespace alarm_eve
             WeatherLabel.Text = W.WEATHER;
             WeatherWSLabel.Text = W.WS;
             WeatherSDLabel.Text = W.SD;
-                string strHour = W.weatherinfo.time.Substring(0, 2);
-                string strMin = W.weatherinfo.time.Substring(3, 2);
-
-                if (Int32.Parse(LastHour) <= Int32.Parse(strHour) &&
-                    Int32.Parse(LastMin) <= Int32.Parse(strMin))
-                {
-                }
-            }
-            catch
-            { }
         }
 
         private void InitBkServiceThread()
@@ -620,7 +610,8 @@ namespace alarm_eve
 
         private void AsyncDataMenuItem_Click(object sender, EventArgs e)
         {
-            string url = "http://7xjgjz.com1.z0.glb.clouddn.com/eve-account.ini";
+            TimeSpan ts = DateTime.UtcNow - new DateTime(1970, 1, 1, 0, 0, 0, 0);
+            string url = string.Format("http://7xjgjz.com1.z0.glb.clouddn.com/eve-account.ini?t={0}", Convert.ToInt64(ts.TotalSeconds).ToString());
             string LocalPath = Application.StartupPath + @"\eve-account.ini";
             WebClient myWebClient = new WebClient();
             myWebClient.DownloadFile(url, LocalPath);
