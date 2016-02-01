@@ -18,6 +18,7 @@ using System.Web;
 using System.Web.Script.Serialization; 
 using System.Threading;
 
+
 namespace alarm_eve
 {
     public delegate void WeatherServiceCallBack(Weather W);
@@ -256,16 +257,17 @@ namespace alarm_eve
 
         }
 
-        private void AlarmFrame_MouseDown(object sender, MouseEventArgs e)
+        private void AlarmFrame_MouseDown(object sender, EventArgs e)
         {
-            Win32.ReleaseCapture();
-            Win32.SendMessage(this.Handle, Win32.WM_NCLBUTTONDOWN, Win32.HTCAPTION, 0);
         }
 
-        private void SkillsStatue_5_MouseDown(object sender, MouseEventArgs e)
+        private void AlarmFrame_MouseDown(object sender, MouseEventArgs e)
         {
-            Win32.ReleaseCapture();
-            Win32.SendMessage(this.Handle, Win32.WM_NCLBUTTONDOWN, Win32.HTCAPTION, 0);
+            if (this.TransparencyKey == ForeColor)
+            {
+                Win32.ReleaseCapture();
+                Win32.SendMessage(this.Handle, Win32.WM_NCLBUTTONDOWN, Win32.HTCAPTION, 0);
+            }
         }
 
         private string GetTimeDiff(DateTime DT, ref bool WarningColor)
@@ -480,12 +482,28 @@ namespace alarm_eve
 
         public void InitWeatherService(Weather W)
         {
-            WeatherCityLabel.Text = W.weatherinfo.city;
-            WeatherUpdateTimeLabel.Text = W.weatherinfo.time;
-            WeatherTempLabel.Text = W.weatherinfo.temp.ToString();
-            WeatherWDLabel.Text = W.weatherinfo.WD;
-            WeatherWSLabel.Text = W.weatherinfo.WS;
-            WeatherSDLabel.Text = W.weatherinfo.SD;
+            try
+            {
+                string LastTime = WeatherUpdateTimeLabel.Text;
+                string LastHour = LastTime.Substring(0, 2);
+                string LastMin = LastTime.Substring(3, 2);
+
+                string strHour = W.weatherinfo.time.Substring(0, 2);
+                string strMin = W.weatherinfo.time.Substring(3, 2);
+
+                if (Int32.Parse(LastHour) <= Int32.Parse(strHour) &&
+                    Int32.Parse(LastMin) <= Int32.Parse(strMin))
+                {
+                    WeatherCityLabel.Text = W.weatherinfo.city;
+                    WeatherUpdateTimeLabel.Text = W.weatherinfo.time;
+                    WeatherTempLabel.Text = W.weatherinfo.temp.ToString() + "℃";
+                    WeatherWDLabel.Text = W.weatherinfo.WD;
+                    WeatherWSLabel.Text = W.weatherinfo.WS;
+                    WeatherSDLabel.Text = W.weatherinfo.SD;
+                }
+            }
+            catch
+            { }
         }
 
         private void InitBkServiceThread()
@@ -609,6 +627,7 @@ namespace alarm_eve
             ShowEveAccount();
             InitShowControl();
         }
+
     }
 
     public class Weather
