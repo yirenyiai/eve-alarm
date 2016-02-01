@@ -62,7 +62,7 @@
             this.WeatherServiceGroup = new System.Windows.Forms.GroupBox();
             this.WeatherSDLabel = new System.Windows.Forms.Label();
             this.WeatherWSLabel = new System.Windows.Forms.Label();
-            this.WeatherWDLabel = new System.Windows.Forms.Label();
+            this.WeatherLabel = new System.Windows.Forms.Label();
             this.WeatherTempLabel = new System.Windows.Forms.Label();
             this.WeatherUpdateTimeLabel = new System.Windows.Forms.Label();
             this.WeatherCityLabel = new System.Windows.Forms.Label();
@@ -84,7 +84,7 @@
             this.RoleName_1.Size = new System.Drawing.Size(56, 17);
             this.RoleName_1.TabIndex = 0;
             this.RoleName_1.Text = "名字: ";
-            this.RoleName_1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.RoleName_1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // MaturityDate_1
             // 
@@ -98,7 +98,7 @@
             this.MaturityDate_1.Size = new System.Drawing.Size(72, 17);
             this.MaturityDate_1.TabIndex = 0;
             this.MaturityDate_1.Text = "完成时间";
-            this.MaturityDate_1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.MaturityDate_1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // SkillsStatue_1
             // 
@@ -112,7 +112,7 @@
             this.SkillsStatue_1.Size = new System.Drawing.Size(56, 17);
             this.SkillsStatue_1.TabIndex = 0;
             this.SkillsStatue_1.Text = "倒计时";
-            this.SkillsStatue_1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.SkillsStatue_1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // TrayIcon
             // 
@@ -189,7 +189,7 @@
             this.RoleName_2.Size = new System.Drawing.Size(56, 17);
             this.RoleName_2.TabIndex = 0;
             this.RoleName_2.Text = "名字: ";
-            this.RoleName_2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.RoleName_2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // MaturityDate_2
             // 
@@ -203,7 +203,7 @@
             this.MaturityDate_2.Size = new System.Drawing.Size(72, 17);
             this.MaturityDate_2.TabIndex = 0;
             this.MaturityDate_2.Text = "完成时间";
-            this.MaturityDate_2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.MaturityDate_2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // SkillsStatue_2
             // 
@@ -217,7 +217,7 @@
             this.SkillsStatue_2.Size = new System.Drawing.Size(56, 17);
             this.SkillsStatue_2.TabIndex = 0;
             this.SkillsStatue_2.Text = "倒计时";
-            this.SkillsStatue_2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.SkillsStatue_2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // RoleName_3
             // 
@@ -231,7 +231,7 @@
             this.RoleName_3.Size = new System.Drawing.Size(56, 17);
             this.RoleName_3.TabIndex = 0;
             this.RoleName_3.Text = "名字: ";
-            this.RoleName_3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.RoleName_3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // MaturityDate_3
             // 
@@ -245,7 +245,7 @@
             this.MaturityDate_3.Size = new System.Drawing.Size(72, 17);
             this.MaturityDate_3.TabIndex = 0;
             this.MaturityDate_3.Text = "完成时间";
-            this.MaturityDate_3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.MaturityDate_3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // SkillsStatue_3
             // 
@@ -259,7 +259,7 @@
             this.SkillsStatue_3.Size = new System.Drawing.Size(56, 17);
             this.SkillsStatue_3.TabIndex = 0;
             this.SkillsStatue_3.Text = "倒计时";
-            this.SkillsStatue_3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.SkillsStatue_3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // RoleName_4
             // 
@@ -273,7 +273,7 @@
             this.RoleName_4.Size = new System.Drawing.Size(56, 17);
             this.RoleName_4.TabIndex = 0;
             this.RoleName_4.Text = "名字: ";
-            this.RoleName_4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.RoleName_4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // MaturityDate_4
             // 
@@ -287,7 +287,7 @@
             this.MaturityDate_4.Size = new System.Drawing.Size(72, 17);
             this.MaturityDate_4.TabIndex = 0;
             this.MaturityDate_4.Text = "完成时间";
-            this.MaturityDate_4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.MaturityDate_4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // SkillsStatue_4
             // 
@@ -301,7 +301,7 @@
             this.SkillsStatue_4.Size = new System.Drawing.Size(56, 17);
             this.SkillsStatue_4.TabIndex = 0;
             this.SkillsStatue_4.Text = "倒计时";
-            this.SkillsStatue_4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.SkillsStatue_4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // RoleName_5
             // 
@@ -315,7 +315,7 @@
             this.RoleName_5.Size = new System.Drawing.Size(56, 17);
             this.RoleName_5.TabIndex = 0;
             this.RoleName_5.Text = "名字: ";
-            this.RoleName_5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.RoleName_5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // MaturityDate_5
             // 
@@ -329,7 +329,7 @@
             this.MaturityDate_5.Size = new System.Drawing.Size(72, 17);
             this.MaturityDate_5.TabIndex = 0;
             this.MaturityDate_5.Text = "完成时间";
-            this.MaturityDate_5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.MaturityDate_5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // SkillsStatue_5
             // 
@@ -343,7 +343,7 @@
             this.SkillsStatue_5.Size = new System.Drawing.Size(56, 17);
             this.SkillsStatue_5.TabIndex = 0;
             this.SkillsStatue_5.Text = "倒计时";
-            this.SkillsStatue_5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.SkillsStatue_5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // label1
             // 
@@ -357,7 +357,7 @@
             this.label1.Size = new System.Drawing.Size(48, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "城市:";
-            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.label1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // label2
             // 
@@ -371,7 +371,7 @@
             this.label2.Size = new System.Drawing.Size(40, 17);
             this.label2.TabIndex = 0;
             this.label2.Text = "温度";
-            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.label2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // label3
             // 
@@ -382,10 +382,10 @@
             this.label3.ForeColor = System.Drawing.Color.Tomato;
             this.label3.Location = new System.Drawing.Point(179, 41);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(40, 17);
+            this.label3.Size = new System.Drawing.Size(72, 17);
             this.label3.TabIndex = 0;
-            this.label3.Text = "风向";
-            this.label3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.label3.Text = "天气情况";
+            this.label3.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // label5
             // 
@@ -399,7 +399,7 @@
             this.label5.Size = new System.Drawing.Size(80, 17);
             this.label5.TabIndex = 0;
             this.label5.Text = "更新时间:";
-            this.label5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.label5.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // label6
             // 
@@ -413,7 +413,7 @@
             this.label6.Size = new System.Drawing.Size(48, 17);
             this.label6.TabIndex = 0;
             this.label6.Text = "风力:";
-            this.label6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.label6.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // label4
             // 
@@ -427,13 +427,13 @@
             this.label4.Size = new System.Drawing.Size(80, 17);
             this.label4.TabIndex = 0;
             this.label4.Text = "相对湿度:";
-            this.label4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.label4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // WeatherServiceGroup
             // 
             this.WeatherServiceGroup.Controls.Add(this.WeatherSDLabel);
             this.WeatherServiceGroup.Controls.Add(this.WeatherWSLabel);
-            this.WeatherServiceGroup.Controls.Add(this.WeatherWDLabel);
+            this.WeatherServiceGroup.Controls.Add(this.WeatherLabel);
             this.WeatherServiceGroup.Controls.Add(this.WeatherTempLabel);
             this.WeatherServiceGroup.Controls.Add(this.WeatherUpdateTimeLabel);
             this.WeatherServiceGroup.Controls.Add(this.WeatherCityLabel);
@@ -463,7 +463,7 @@
             this.WeatherSDLabel.Size = new System.Drawing.Size(16, 17);
             this.WeatherSDLabel.TabIndex = 0;
             this.WeatherSDLabel.Text = "-";
-            this.WeatherSDLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.WeatherSDLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // WeatherWSLabel
             // 
@@ -477,21 +477,21 @@
             this.WeatherWSLabel.Size = new System.Drawing.Size(16, 17);
             this.WeatherWSLabel.TabIndex = 0;
             this.WeatherWSLabel.Text = "-";
-            this.WeatherWSLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.WeatherWSLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
-            // WeatherWDLabel
+            // WeatherLabel
             // 
-            this.WeatherWDLabel.AutoEllipsis = true;
-            this.WeatherWDLabel.AutoSize = true;
-            this.WeatherWDLabel.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.WeatherWDLabel.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.WeatherWDLabel.ForeColor = System.Drawing.Color.Tomato;
-            this.WeatherWDLabel.Location = new System.Drawing.Point(265, 41);
-            this.WeatherWDLabel.Name = "WeatherWDLabel";
-            this.WeatherWDLabel.Size = new System.Drawing.Size(16, 17);
-            this.WeatherWDLabel.TabIndex = 0;
-            this.WeatherWDLabel.Text = "-";
-            this.WeatherWDLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.WeatherLabel.AutoEllipsis = true;
+            this.WeatherLabel.AutoSize = true;
+            this.WeatherLabel.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.WeatherLabel.Font = new System.Drawing.Font("Consolas", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.WeatherLabel.ForeColor = System.Drawing.Color.Tomato;
+            this.WeatherLabel.Location = new System.Drawing.Point(265, 41);
+            this.WeatherLabel.Name = "WeatherLabel";
+            this.WeatherLabel.Size = new System.Drawing.Size(16, 17);
+            this.WeatherLabel.TabIndex = 0;
+            this.WeatherLabel.Text = "-";
+            this.WeatherLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // WeatherTempLabel
             // 
@@ -505,7 +505,7 @@
             this.WeatherTempLabel.Size = new System.Drawing.Size(16, 17);
             this.WeatherTempLabel.TabIndex = 0;
             this.WeatherTempLabel.Text = "-";
-            this.WeatherTempLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.WeatherTempLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // WeatherUpdateTimeLabel
             // 
@@ -516,10 +516,10 @@
             this.WeatherUpdateTimeLabel.ForeColor = System.Drawing.Color.Tomato;
             this.WeatherUpdateTimeLabel.Location = new System.Drawing.Point(265, 14);
             this.WeatherUpdateTimeLabel.Name = "WeatherUpdateTimeLabel";
-            this.WeatherUpdateTimeLabel.Size = new System.Drawing.Size(48, 17);
+            this.WeatherUpdateTimeLabel.Size = new System.Drawing.Size(16, 17);
             this.WeatherUpdateTimeLabel.TabIndex = 0;
-            this.WeatherUpdateTimeLabel.Text = "00:00";
-            this.WeatherUpdateTimeLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.WeatherUpdateTimeLabel.Text = "-";
+            this.WeatherUpdateTimeLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // WeatherCityLabel
             // 
@@ -533,7 +533,7 @@
             this.WeatherCityLabel.Size = new System.Drawing.Size(16, 17);
             this.WeatherCityLabel.TabIndex = 0;
             this.WeatherCityLabel.Text = "-";
-            this.WeatherCityLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AlarmFrame_MouseDown);
+            this.WeatherCityLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SkillsStatue_5_MouseDown);
             // 
             // CountdownServiceGroup
             // 
@@ -623,7 +623,7 @@
         private System.Windows.Forms.GroupBox CountdownServiceGroup;
         private System.Windows.Forms.Label WeatherSDLabel;
         private System.Windows.Forms.Label WeatherWSLabel;
-        private System.Windows.Forms.Label WeatherWDLabel;
+        private System.Windows.Forms.Label WeatherLabel;
         private System.Windows.Forms.Label WeatherTempLabel;
         private System.Windows.Forms.Label WeatherUpdateTimeLabel;
         private System.Windows.Forms.Label WeatherCityLabel;
