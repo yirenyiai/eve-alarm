@@ -235,7 +235,7 @@ namespace alarm_eve
             {
                 case 1:
                     this.Height = 76 + 118;
-                    this.CountdownServiceGroup.Height = 76;
+                    this.CountdownServiceGroup.Height = 73;
                     break;
                 case 2:
                     this.Height = 175 + 118;
@@ -715,6 +715,10 @@ namespace alarm_eve
                 catch(System.Reflection.AmbiguousMatchException e)
                 {
                     string str = e.Message;
+                }
+                catch
+                {
+                    string str = "未知错误";
                 }
 
                 // 5 分钟执行一次

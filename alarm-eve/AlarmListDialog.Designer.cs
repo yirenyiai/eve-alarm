@@ -75,7 +75,7 @@
             // 
             // RoleEdit
             // 
-            this.RoleEdit.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.RoleEdit.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.RoleEdit.Location = new System.Drawing.Point(115, 290);
             this.RoleEdit.Name = "RoleEdit";
             this.RoleEdit.Size = new System.Drawing.Size(342, 33);
@@ -94,7 +94,7 @@
             // EveAccountEdit
             // 
             this.EveAccountEdit.AutoSize = true;
-            this.EveAccountEdit.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.EveAccountEdit.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.EveAccountEdit.Location = new System.Drawing.Point(20, 294);
             this.EveAccountEdit.Name = "EveAccountEdit";
             this.EveAccountEdit.Size = new System.Drawing.Size(50, 25);
@@ -104,8 +104,8 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label1.Location = new System.Drawing.Point(20, 334);
+            this.label1.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label1.Location = new System.Drawing.Point(20, 382);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(88, 25);
             this.label1.TabIndex = 3;
@@ -113,8 +113,8 @@
             // 
             // MaturityDate
             // 
-            this.MaturityDate.Font = new System.Drawing.Font("Microsoft YaHei", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.MaturityDate.Location = new System.Drawing.Point(114, 334);
+            this.MaturityDate.Font = new System.Drawing.Font("微软雅黑", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.MaturityDate.Location = new System.Drawing.Point(114, 382);
             this.MaturityDate.Name = "MaturityDate";
             this.MaturityDate.Size = new System.Drawing.Size(343, 33);
             this.MaturityDate.TabIndex = 4;
@@ -144,7 +144,7 @@
             this.ShowAccount.AutoSize = true;
             this.ShowAccount.Checked = true;
             this.ShowAccount.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ShowAccount.Location = new System.Drawing.Point(22, 412);
+            this.ShowAccount.Location = new System.Drawing.Point(22, 474);
             this.ShowAccount.Name = "ShowAccount";
             this.ShowAccount.Size = new System.Drawing.Size(74, 17);
             this.ShowAccount.TabIndex = 5;
@@ -157,7 +157,7 @@
             this.ShowMaturityDate.AutoSize = true;
             this.ShowMaturityDate.Checked = true;
             this.ShowMaturityDate.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ShowMaturityDate.Location = new System.Drawing.Point(100, 412);
+            this.ShowMaturityDate.Location = new System.Drawing.Point(100, 474);
             this.ShowMaturityDate.Name = "ShowMaturityDate";
             this.ShowMaturityDate.Size = new System.Drawing.Size(122, 17);
             this.ShowMaturityDate.TabIndex = 5;
@@ -170,7 +170,7 @@
             this.ShowTimer.AutoSize = true;
             this.ShowTimer.Checked = true;
             this.ShowTimer.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.ShowTimer.Location = new System.Drawing.Point(226, 412);
+            this.ShowTimer.Location = new System.Drawing.Point(226, 474);
             this.ShowTimer.Name = "ShowTimer";
             this.ShowTimer.Size = new System.Drawing.Size(86, 17);
             this.ShowTimer.TabIndex = 5;
@@ -181,7 +181,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(19, 386);
+            this.label2.Location = new System.Drawing.Point(19, 448);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 6;
@@ -197,7 +197,7 @@
             "3",
             "4",
             "5"});
-            this.ShowItemCount.Location = new System.Drawing.Point(92, 383);
+            this.ShowItemCount.Location = new System.Drawing.Point(92, 445);
             this.ShowItemCount.Name = "ShowItemCount";
             this.ShowItemCount.Size = new System.Drawing.Size(59, 21);
             this.ShowItemCount.TabIndex = 7;
@@ -207,7 +207,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(157, 386);
+            this.label3.Location = new System.Drawing.Point(157, 448);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(43, 13);
             this.label3.TabIndex = 8;
@@ -227,7 +227,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(634, 458);
+            this.ClientSize = new System.Drawing.Size(634, 513);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.ShowItemCount);
             this.Controls.Add(this.label2);
