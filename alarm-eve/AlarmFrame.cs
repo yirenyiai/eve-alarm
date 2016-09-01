@@ -195,6 +195,7 @@ namespace alarm_eve
         {
             // 读取INI数据
             m_SkillsDTArray.Clear();
+            // 重置所有窗口信息
 
             string AccountSet = m_Ini.IniReadValue("eve-account", "AccountSet");
             string Account = "";
@@ -234,8 +235,8 @@ namespace alarm_eve
             switch(ItemCount)
             {
                 case 1:
-                    this.Height = 76 + 118;
-                    this.CountdownServiceGroup.Height = 73;
+                    this.Height = 110 + 118;
+                    this.CountdownServiceGroup.Height = 110;
                     break;
                 case 2:
                     this.Height = 175 + 118;
